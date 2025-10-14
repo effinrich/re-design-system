@@ -11,13 +11,13 @@
 To run the dev server for your app, use:
 
 ```sh
-npx nx serve react-demo
+npx nx serve portal
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build react-demo
+npx nx build portal
 ```
 
 To see all available targets to run for a project, run:
