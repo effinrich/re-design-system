@@ -8,7 +8,7 @@ export * from './lib/card/card';
 export * from './lib/checkbox/checkbox';
 export * from './lib/alert/alert';
 export * from './lib/modal/modal';
-import * from './lib/hero/hero';
+export * from './lib/hero/hero';
 export * from './lib/form-field/form-field';
 export * from './lib/form-field-master/form-field-master';
 export * from './lib/input/input';
