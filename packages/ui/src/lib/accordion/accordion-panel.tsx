@@ -1,6 +1,13 @@
 import { cx } from '@chakra-ui/shared-utils'
-import { chakra, forwardRef, HTMLChakraProps } from '@chakra-ui/system'
-import { Collapse, CollapseProps } from '@chakra-ui/transition'
+import { chakra, forwardRef, HTMLChakraProps, Collapse } from '@chakra-ui/react'
+
+export interface CollapseProps {
+  in?: boolean
+  unmountOnExit?: boolean
+  animateOpacity?: boolean
+  startingHeight?: number | string
+  endingHeight?: number | string
+}
 
 import {
   useAccordionItemContext,

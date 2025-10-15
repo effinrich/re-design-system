@@ -1,4 +1,12 @@
-import { Icon, IconProps } from '@chakra-ui/icon'
+export interface IconProps {
+  viewBox?: string
+  color?: string
+  [key: string]: any
+}
+
+const Icon = ({ children, ...props }: IconProps & { children: React.ReactNode }) => (
+  <svg {...props}>{children}</svg>
+)
 
 export function CheckIcon(props: IconProps) {
   return (

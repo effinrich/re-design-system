@@ -1,6 +1,28 @@
-import { Icon, IconProps } from '@chakra-ui/icon'
 import { cx } from '@chakra-ui/shared-utils'
-import { SystemStyleObject } from '@chakra-ui/system'
+import { SystemStyleObject } from '@chakra-ui/react'
+
+// Icon component from Chakra v3
+import { LuChevronDown } from 'react-icons/lu'
+
+export interface IconProps {
+  viewBox?: string
+  'aria-hidden'?: boolean
+  className?: string
+  __css?: SystemStyleObject
+  [key: string]: any
+}
+
+const Icon = ({ children, __css, className, ...props }: IconProps & { children?: React.ReactNode }) => {
+  return (
+    <svg
+      className={className}
+      style={__css as any}
+      {...props}
+    >
+      {children}
+    </svg>
+  )
+}
 
 import {
   useAccordionItemContext,

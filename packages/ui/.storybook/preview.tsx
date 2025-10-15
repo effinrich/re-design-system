@@ -1,48 +1,45 @@
-import { createLocalStorageManager } from '@chakra-ui/react'
-import { theme } from '@redesignhealth/ui'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { initialize, mswLoader } from 'msw-storybook-addon'
-import type { Preview } from '@storybook/react';
-
-import { StoryFn } from '@storybook/react-vite'
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
+import { withThemeByClassName } from '@storybook/addon-themes';
+import type { Preview } from "@storybook/react"
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { initialize, mswLoader } from 'msw-storybook-addon';
 
 // Initialize MSW
 initialize()
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: false
-    }
-  }
-})
-
-const storageManager = createLocalStorageManager('sb-color-mode')
-
-
-
-export const parameters: Preview['parameters'] = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  docs: {
-    toc: true // 👈 Enables the table of contents
+      retry: false,
+    },
   },
-  controls: {
-    // expanded: true,
-    hideNoControlsWarning: true,
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/
-    }
-  },
-  chromatic: { disableSnapshot: true },
-  chakra: { colorModeManager: storageManager, theme }
-}
+});
 
-export const loaders = [mswLoader]
-export const decorators = [
-  (Story: StoryFn) => (
-    <QueryClientProvider client={queryClient}>
-      <Story />
-    </QueryClientProvider>
-  )
-]
-export const tags = ['autodocs'];
+
+const preview: Preview = {
+  parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+  },
+  loaders: [mswLoader],
+  decorators: [
+    withThemeByClassName({
+      defaultTheme: 'light',
+      themes: { light: '', dark: 'dark' },
+    }),
+    (Story) => (
+      <QueryClientProvider client={queryClient}>
+        <ChakraProvider value={defaultSystem}>
+          <Story />
+        </ChakraProvider>
+      </QueryClientProvider>
+    ),
+  ],
+};
+
+export default preview;

@@ -5,7 +5,7 @@ import {
   forwardRef,
   HTMLChakraProps,
   SystemStyleObject
-} from '@chakra-ui/system'
+} from '@chakra-ui/react'
 
 import { AccordionItemProvider, useAccordionStyles } from './accordion-context'
 import { useAccordionItem, UseAccordionItemProps } from './use-accordion'

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import * as React from 'react'
-import { chakra } from '@chakra-ui/system'
+import { chakra } from '@chakra-ui/react'
 
 import { Meta } from '@storybook/react-vite'
 

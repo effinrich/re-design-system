@@ -8,12 +8,17 @@ import {
   PhoneIcon,
   SearchIcon
 } from '@chakra-ui/icons'
-import { Box, HStack, Stack, Wrap, WrapItem } from '@chakra-ui/layout'
+import { Box, HStack, Stack, Wrap, WrapItem } from '@chakra-ui/react'
 import { getThemingArgTypes } from '@chakra-ui/storybook-addon'
-import { ThemingProps } from '@chakra-ui/system'
-import { theme } from '@chakra-ui/theme'
+import { theme } from '@chakra-ui/react'
 import { pick } from '@chakra-ui/utils'
 import { motion } from 'framer-motion'
+
+interface ThemingProps {
+  variant?: string
+  colorScheme?: string
+  size?: string
+}
 
 import { Meta, StoryObj } from '@storybook/react-vite'
 

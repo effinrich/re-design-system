@@ -7,7 +7,7 @@ import {
   omitThemingProps,
   ThemingProps,
   useMultiStyleConfig
-} from '@chakra-ui/system'
+} from '@chakra-ui/react'
 
 import {
   AccordionDescendantsProvider,

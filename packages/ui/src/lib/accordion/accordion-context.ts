@@ -1,6 +1,6 @@
 import { createDescendantContext } from '@chakra-ui/descendant'
 import { createContext } from '@chakra-ui/react-context'
-import { SystemStyleObject } from '@chakra-ui/system'
+import { SystemStyleObject } from '@chakra-ui/react'
 
 import { UseAccordionItemReturn } from './use-accordion'
 

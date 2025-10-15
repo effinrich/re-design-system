@@ -1,5 +1,5 @@
-import { Stack } from '@chakra-ui/layout'
-import { PropsOf } from '@chakra-ui/system'
+import { Stack } from '@chakra-ui/react'
+import { SVGProps } from 'react'
 
 import { Avatar, AvatarBadge, AvatarGroup } from './avatar'
 
@@ -19,7 +19,7 @@ export const Basic = () => (
  * You can use a custom generic avatar instead of
  * what we have in Redesign UI.
  */
-const GenericAvatar = (props: PropsOf<'svg'>) => (
+const GenericAvatar = (props: SVGProps<SVGSVGElement>) => (
   <svg
     color="#fff"
     viewBox="0 0 30 31"
