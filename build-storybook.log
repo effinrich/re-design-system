@@ -1,0 +1,9 @@
+
+> @react/re-design-system@0.0.0 build-storybook
+> nx run @react/ui --output-dir=/var/folders/2c/rhpgl3ps5bj9jl00sgz_1s8m0000gn/T/chromatic--75236-EL0aojqBPCg1
+
+
+ NX   Both project and target have to be specified
+
+Pass --verbose to see the stacktrace.
+

@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "storybook": "nx storybook @react/ui",
+    "build-storybook": "nx run @react/ui",
     "details-ui": "npx nx show project @react/ui",
     "details-portal": "npx nx show project @react/portal"
   },
