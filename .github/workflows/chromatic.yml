@@ -8,7 +8,7 @@ jobs:
   chromatic:
     runs-on: ubuntu-latest
     steps:
-      # ... other steps
+      # ... other stepsi. 
 
       - name: Publish Project 1 to Chromatic
         uses: chromaui/action@latest
