@@ -1,0 +1,19 @@
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      # ... other steps
+
+      - name: Publish Project 1 to Chromatic
+        uses: chromaui/action@latest
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_1 }}
+          workingDir: packages/project_1
+
+      - name: Publish Project 2 to Chromatic
+        uses: chromaui/action@latest
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_2 }}
+          workingDir: packages/project_2
