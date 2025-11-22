@@ -1,6 +1,7 @@
 import { MdChat, MdMoreHoriz, MdShare, MdThumbUp } from 'react-icons/md'
 
-import { Meta } from '@storybook/react-vite'
+import type { Meta } from '@storybook/react'
+import type { card } from '@chakra-ui/react'
 
 import {
   Avatar,
@@ -69,7 +70,7 @@ export default {
     controls: {
       include: ['as', 'direction', 'align', 'justify', 'variant', 'size']
     }
-  }
+} satisfies Meta<CardProps>
 } as Meta<typeof Divider>
 
 export const Variants = () => (
