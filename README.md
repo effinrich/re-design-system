@@ -2,7 +2,37 @@
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+✨ A React monorepo with a comprehensive UI component library ✨
+
+## Packages
+
+### @react/ui - Design System
+
+A complete React UI component library built on Chakra UI with 75+ components.
+
+📖 **[View Documentation](./packages/ui/docs/INDEX.md)**
+
+| Resource | Description |
+|----------|-------------|
+| [API Reference](./packages/ui/docs/API.md) | Complete component API documentation |
+| [Getting Started](./packages/ui/docs/GETTING_STARTED.md) | Installation and setup guide |
+| [Examples](./packages/ui/docs/EXAMPLES.md) | Common patterns and examples |
+| [Quick Reference](./packages/ui/docs/QUICK_REFERENCE.md) | Cheat sheet for components |
+| [Theme Guide](./packages/ui/docs/THEME.md) | Theme customization |
+
+**Quick Start:**
+```tsx
+import { RhProvider, theme, Button } from '@react/ui'
+
+<RhProvider theme={theme}>
+  <Button colorScheme="primary">Click me</Button>
+</RhProvider>
+```
+
+**Run Storybook:**
+```bash
+npm run storybook
+```
 
 [Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
 
