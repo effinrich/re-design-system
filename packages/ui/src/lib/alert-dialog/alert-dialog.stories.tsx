@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { useDisclosure } from '@chakra-ui/hooks'
+import { useDisclosure } from '@chakra-ui/react'
 
 import { Meta } from '@storybook/react-vite'
 
@@ -67,15 +67,15 @@ export default {
 } as Meta<typeof AlertDialog>
 
 const BasicUsageHooks = (args: any) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef = useRef<{ handleOnClose(): void }>()
+  const { open, onOpen, onClose } = useDisclosure()
+  const cancelRef = useRef<HTMLButtonElement>(null)
   return (
     <>
       <Button colorScheme="red" onClick={onOpen} maxW="150px">
         Delete Customer
       </Button>
       <AlertDialog
-        isOpen={isOpen}
+        isOpen={open}
         leastDestructiveRef={cancelRef}
         onClose={onClose}
         {...args}
@@ -110,8 +110,8 @@ export const BasicUsage = {
 }
 
 const TransitionHooks = (args: any) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef = useRef<{ handleOnClose(): void }>()
+  const { open, onOpen, onClose } = useDisclosure()
+  const cancelRef = useRef<HTMLButtonElement>(null)
 
   return (
     <>
@@ -123,7 +123,7 @@ const TransitionHooks = (args: any) => {
         motionPreset="slideInBottom"
         leastDestructiveRef={cancelRef}
         onClose={onClose}
-        isOpen={isOpen}
+        isOpen={open}
         isCentered
         {...args}
       >

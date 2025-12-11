@@ -1,12 +1,16 @@
 import { renderHook, act } from '@testing-library/react'
 import { useAccordion, useAccordionItem } from './use-accordion'
-import { AccordionProvider, AccordionDescendantsProvider, AccordionItemProvider } from './accordion-context'
+import {
+  AccordionDescendantsProvider,
+  AccordionItemProvider
+} from './accordion-context'
 import { ReactNode } from 'react'
+import { vi } from 'vitest'
 
 // Mock the warn function from Chakra
-jest.mock('@chakra-ui/shared-utils', () => ({
-  ...jest.requireActual('@chakra-ui/shared-utils'),
-  warn: jest.fn()
+vi.mock('@chakra-ui/shared-utils', () => ({
+  ...vi.importActual('@chakra-ui/shared-utils'),
+  warn: vi.fn()
 }))
 
 describe('useAccordion', () => {
@@ -28,10 +32,12 @@ describe('useAccordion', () => {
     })
 
     test('initializes with defaultIndex array when allowMultiple', () => {
-      const { result } = renderHook(() => useAccordion({
-        allowMultiple: true,
-        defaultIndex: [0, 2]
-      }))
+      const { result } = renderHook(() =>
+        useAccordion({
+          allowMultiple: true,
+          defaultIndex: [0, 2]
+        })
+      )
 
       expect(result.current.index).toEqual([0, 2])
     })
@@ -60,11 +66,9 @@ describe('useAccordion', () => {
       rerender({ index: 2 })
       expect(result.current.index).toBe(2)
     })
-
     test('calls onChange when index changes', () => {
-      const onChange = jest.fn()
+      const onChange = vi.fn()
       const { result } = renderHook(() => useAccordion({ onChange }))
-
       const { onChange: itemOnChange } = result.current.getAccordionItemProps(0)
 
       act(() => {
@@ -73,9 +77,8 @@ describe('useAccordion', () => {
 
       expect(onChange).toHaveBeenCalledWith(0)
     })
-
     test('handles controlled index with allowMultiple', () => {
-      const onChange = jest.fn()
+      const onChange = vi.fn()
       const { result } = renderHook(() =>
         useAccordion({ allowMultiple: true, index: [0, 1], onChange })
       )
@@ -249,37 +252,36 @@ describe('useAccordion', () => {
       expect(result.current.focusedIndex).toBe(-1)
     })
   })
-
   describe('warning validations', () => {
-    let consoleWarnSpy: jest.SpyInstance
+    let consoleWarnSpy: any
 
     beforeEach(() => {
-      consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation()
+      consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
     })
 
     afterEach(() => {
       consoleWarnSpy.mockRestore()
     })
+  })
 
-    test('validates allowMultiple with non-array index', () => {
-      const { warn } = require('@chakra-ui/shared-utils')
+  test('validates allowMultiple with non-array index', () => {
+    const { warn } = require('@chakra-ui/shared-utils')
 
-      renderHook(() => useAccordion({ allowMultiple: true, defaultIndex: 0 }))
+    renderHook(() => useAccordion({ allowMultiple: true, defaultIndex: 0 }))
 
-      expect(warn).toHaveBeenCalledWith(
-        expect.objectContaining({
-          condition: true
-        })
-      )
-    })
+    expect(warn).toHaveBeenCalledWith(
+      expect.objectContaining({
+        condition: true
+      })
+    )
+  })
 
-    test('validates allowMultiple and allowToggle together', () => {
-      const { warn } = require('@chakra-ui/shared-utils')
+  test('validates allowMultiple and allowToggle together', () => {
+    const { warn } = require('@chakra-ui/shared-utils')
 
-      renderHook(() => useAccordion({ allowMultiple: true, allowToggle: true }))
+    renderHook(() => useAccordion({ allowMultiple: true, allowToggle: true }))
 
-      expect(warn).toHaveBeenCalled()
-    })
+    expect(warn).toHaveBeenCalled()
   })
 })
 
@@ -289,14 +291,14 @@ describe('useAccordionItem', () => {
       const accordion = useAccordion(accordionProps)
       return (
         <AccordionDescendantsProvider value={accordion.descendants}>
-          <AccordionProvider
+          <AccordionItemProvider
             value={{
               ...accordion,
               reduceMotion: false
             }}
           >
             {children}
-          </AccordionProvider>
+          </AccordionItemProvider>
         </AccordionDescendantsProvider>
       )
     }
@@ -317,7 +319,9 @@ describe('useAccordionItem', () => {
 
   test('uses custom id when provided', () => {
     const wrapper = createWrapper()
-    const { result } = renderHook(() => useAccordionItem({ id: 'custom-id' }), { wrapper })
+    const { result } = renderHook(() => useAccordionItem({ id: 'custom-id' }), {
+      wrapper
+    })
 
     const buttonProps = result.current.getButtonProps()
     const panelProps = result.current.getPanelProps()
@@ -335,7 +339,10 @@ describe('useAccordionItem', () => {
 
   test('returns correct isDisabled state', () => {
     const wrapper = createWrapper()
-    const { result } = renderHook(() => useAccordionItem({ isDisabled: true }), { wrapper })
+    const { result } = renderHook(
+      () => useAccordionItem({ isDisabled: true }),
+      { wrapper }
+    )
 
     expect(result.current.isDisabled).toBe(true)
   })
@@ -353,7 +360,10 @@ describe('useAccordionItem', () => {
 
   test('getButtonProps sets disabled when isDisabled', () => {
     const wrapper = createWrapper()
-    const { result } = renderHook(() => useAccordionItem({ isDisabled: true }), { wrapper })
+    const { result } = renderHook(
+      () => useAccordionItem({ isDisabled: true }),
+      { wrapper }
+    )
 
     const buttonProps = result.current.getButtonProps()
 
@@ -402,25 +412,24 @@ describe('useAccordionItem', () => {
 
     expect(result.current.isOpen).toBe(false)
   })
-
   test('merges user onClick with internal onClick', () => {
     const wrapper = createWrapper()
     const { result } = renderHook(() => useAccordionItem({}), { wrapper })
-    const userOnClick = jest.fn()
-
-    const buttonProps = result.current.getButtonProps({ onClick: userOnClick })
+    const userOnClick = vi.fn()
+    // const buttonProps = result.current.getButtonProps({ onClick: userOnClick })
 
     act(() => {
-      buttonProps.onClick?.({} as any)
+      result.current
+        .getButtonProps({ onClick: userOnClick })
+        .onClick?.({} as any)
     })
 
     expect(userOnClick).toHaveBeenCalled()
   })
-
   test('merges user onFocus with internal onFocus', () => {
     const wrapper = createWrapper()
     const { result } = renderHook(() => useAccordionItem({}), { wrapper })
-    const userOnFocus = jest.fn()
+    const userOnFocus = vi.fn()
 
     const buttonProps = result.current.getButtonProps({ onFocus: userOnFocus })
 
@@ -430,13 +439,14 @@ describe('useAccordionItem', () => {
 
     expect(userOnFocus).toHaveBeenCalled()
   })
-
   test('merges user onKeyDown with internal onKeyDown', () => {
     const wrapper = createWrapper()
     const { result } = renderHook(() => useAccordionItem({}), { wrapper })
-    const userOnKeyDown = jest.fn()
+    const userOnKeyDown = vi.fn()
 
-    const buttonProps = result.current.getButtonProps({ onKeyDown: userOnKeyDown })
+    const buttonProps = result.current.getButtonProps({
+      onKeyDown: userOnKeyDown
+    })
 
     act(() => {
       buttonProps.onKeyDown?.({ key: 'Tab' } as any)

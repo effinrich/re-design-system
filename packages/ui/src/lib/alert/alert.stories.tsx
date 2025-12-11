@@ -1,6 +1,6 @@
 import { Box, Container } from '../../index'
 
-import { Alert, AlertDescription, AlertIcon, AlertTitle } from './alert'
+import { Alert, AlertDescription, AlertTitle } from './alert'
 
 export default {
   title: 'Components / Feedback / Alert',
@@ -9,7 +9,6 @@ export default {
 
 export const Basic = () => (
   <Alert status="error" variant="solid" borderRadius="md">
-    <AlertIcon />
     <AlertTitle mr={2}>Outdated</AlertTitle>
     <AlertDescription>Your Chakra experience may be degraded.</AlertDescription>
   </Alert>
