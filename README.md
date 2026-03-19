@@ -1,4 +1,4 @@
-Nx React monorepo containing a portal app and a shared design-system-style UI package, with Storybook required and Chromatic expected for UI regression coverage
+Nx React monorepo containing a portal app and a shared design-system-style UI package, with Storybook required and Chromatic expected for UI regression coverage.
 
 # ReactDemo
 
