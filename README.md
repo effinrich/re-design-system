@@ -1,3 +1,5 @@
+Nx React monorepo containing a portal app and a shared design-system-style UI package, with Storybook required and Chromatic expected for UI regression coverage
+
 # ReactDemo
 
 [![Nx logo](https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png)](https://nx.dev)
