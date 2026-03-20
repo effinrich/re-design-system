@@ -1,6 +1,44 @@
 import { render, screen, testA11y } from '@redesignhealth/shared-utils-jest'
 
-import { Button, ButtonGroup } from './button'
+import { Button, ButtonGroup, resolveButtonRecipe } from './button'
+
+describe('resolveButtonRecipe', () => {
+  test('maps primary intent to the product default variant', () => {
+    expect(resolveButtonRecipe({ intent: 'primary' })).toEqual({
+      colorScheme: undefined,
+      variant: 'primary'
+    })
+  })
+
+  test('maps accent surface variants for semantic intents', () => {
+    expect(
+      resolveButtonRecipe({ intent: 'secondary', surface: 'accent' })
+    ).toEqual({
+      colorScheme: undefined,
+      variant: 'secondary-on-accent'
+    })
+  })
+
+  test('maps danger intent to the red solid button treatment', () => {
+    expect(resolveButtonRecipe({ intent: 'danger' })).toEqual({
+      colorScheme: 'red',
+      variant: 'solid'
+    })
+  })
+
+  test('does not override explicit variants or color schemes', () => {
+    expect(
+      resolveButtonRecipe({
+        colorScheme: 'teal',
+        intent: 'primary',
+        variant: 'outline'
+      })
+    ).toEqual({
+      colorScheme: 'teal',
+      variant: 'outline'
+    })
+  })
+})
 
 describe('Button', () => {
   test('should have no accessibility issues', async () => {
@@ -63,6 +101,11 @@ describe('Button', () => {
 
     rerender(<Button variant="ghost">Ghost</Button>)
     expect(screen.getByText('Ghost')).toBeInTheDocument()
+  })
+
+  test('renders semantic intent buttons without extra consumer props', () => {
+    render(<Button intent="primary">Save changes</Button>)
+    expect(screen.getByRole('button', { name: 'Save changes' })).toBeVisible()
   })
 
   test('renders with different color schemes', () => {

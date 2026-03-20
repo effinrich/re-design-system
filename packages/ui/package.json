@@ -12,6 +12,8 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
+    "@chakra-ui/react": "file:",
+    "@emotion/react": "^11.14.0",
     "html-react-parser": "^5.2.7"
   }
 }

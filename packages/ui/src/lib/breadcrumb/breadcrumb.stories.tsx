@@ -1,5 +1,5 @@
+import { FiChevronRight } from 'react-icons/fi'
 import { BrowserRouter, Link } from 'react-router-dom'
-import { ChevronRightIcon } from '@chakra-ui/icons'
 
 import {
   Breadcrumb,
@@ -51,7 +51,7 @@ export const WithSeparator = () => (
 )
 
 export const WithCustomSeparator = () => (
-  <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.300" />}>
+  <Breadcrumb spacing="8px" separator={<FiChevronRight color="gray.300" />}>
     <BreadcrumbItem>
       <BreadcrumbLink href="/">Home</BreadcrumbLink>
     </BreadcrumbItem>

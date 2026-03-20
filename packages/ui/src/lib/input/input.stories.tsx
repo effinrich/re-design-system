@@ -1,7 +1,7 @@
 /* eslint-disable react/no-children-prop */
 import * as React from 'react'
+import { FiCheck, FiPhone } from 'react-icons/fi'
 import { useDisclosure } from '@chakra-ui/hooks'
-import { CheckIcon, PhoneIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
@@ -104,14 +104,14 @@ export const WithInputAddon = () => (
 export const WithInputElement = () => (
   <Stack align="start">
     <InputGroup>
-      <InputLeftElement children={<PhoneIcon color="gray.300" />} />
+      <InputLeftElement children={<FiPhone color="gray.300" />} />
       <Input paddingStart="60px" type="tel" placeholder="Phone number" />
     </InputGroup>
 
     <InputGroup size="sm">
       <InputLeftElement color="gray.300" fontSize="1.2em" children="$" />
       <Input placeholder="Enter amount" />
-      <InputRightElement children={<CheckIcon color="green.500" />} />
+      <InputRightElement children={<FiCheck color="green.500" />} />
     </InputGroup>
   </Stack>
 )

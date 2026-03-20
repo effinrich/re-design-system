@@ -1,18 +1,17 @@
 import { ReactNode, useState } from 'react'
+import {
+  FiArrowRight,
+  FiCheck,
+  FiChevronDown,
+  FiMail,
+  FiPhone,
+  FiSearch
+} from 'react-icons/fi'
 import { MdBuild, MdCall, MdFacebook } from 'react-icons/md'
 import { BeatLoader } from 'react-spinners'
-import {
-  ArrowForwardIcon,
-  ChevronDownIcon,
-  EmailIcon,
-  PhoneIcon,
-  SearchIcon
-} from '@chakra-ui/icons'
 import { Box, HStack, Stack, Wrap, WrapItem } from '@chakra-ui/react'
-import { getThemingArgTypes } from '@chakra-ui/storybook-addon'
-import { theme } from '@chakra-ui/react'
-import { pick } from '@chakra-ui/utils'
 import { motion } from 'framer-motion'
+import { expect, within } from 'storybook/test'
 
 interface ThemingProps {
   variant?: string
@@ -40,8 +39,26 @@ export default {
     // isRound: { type: 'boolean' },
     rightIcon: { type: 'function' },
     'aria-label': { type: 'string' },
+    intent: {
+      options: ['primary', 'secondary', 'danger'],
+      control: { type: 'inline-radio' }
+    },
+    surface: {
+      options: ['default', 'accent'],
+      control: { type: 'inline-radio' }
+    },
     variant: {
-      options: ['solid', 'outline', 'ghost', 'link', 'unstyled'],
+      options: [
+        'solid',
+        'outline',
+        'ghost',
+        'link',
+        'unstyled',
+        'primary',
+        'secondary',
+        'primary-on-accent',
+        'secondary-on-accent'
+      ],
       control: { type: 'radio' }
     },
     size: {
@@ -68,9 +85,8 @@ export default {
   },
   args: {
     'aria-label': 'button action',
-    colorScheme: 'primary',
-    size: 'md',
-    variant: 'solid'
+    intent: 'primary',
+    size: 'md'
   }
   // decorators: [
   //   Story => (
@@ -88,10 +104,82 @@ interface StoryProps extends ThemingProps<'Button'> {
 export const Basic: StoryObj<StoryProps> = {
   args: {
     children: 'Button',
-    colorScheme: 'primary',
-    variant: 'solid'
+    intent: 'primary'
   }
 }
+
+export const ProductTeamDefaults: StoryObj<StoryProps> = {
+  args: {
+    children: 'Save changes',
+    intent: 'primary'
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(
+      canvas.getByRole('button', { name: 'Save changes' })
+    ).toBeInTheDocument()
+  }
+}
+
+export const SemanticActions = () => {
+  return (
+    <Stack gap={6}>
+      <HStack spacing="24px" flexWrap="wrap">
+        <Button intent="primary">Primary action</Button>
+        <Button intent="secondary">Secondary action</Button>
+        <Button intent="danger">Delete record</Button>
+      </HStack>
+
+      <Box bg="primary.600" borderRadius="lg" p={6}>
+        <HStack spacing="24px" flexWrap="wrap">
+          <Button intent="primary" surface="accent">
+            Primary on accent
+          </Button>
+          <Button intent="secondary" surface="accent">
+            Secondary on accent
+          </Button>
+        </HStack>
+      </Box>
+
+      <HStack spacing="24px" flexWrap="wrap">
+        <Button intent="primary" isLoading loadingText="Saving">
+          Save changes
+        </Button>
+        <Button intent="secondary" isDisabled>
+          Disabled secondary
+        </Button>
+        <Button intent="danger" variant="outline">
+          Explicit override
+        </Button>
+      </HStack>
+    </Stack>
+  )
+}
+
+export const WithVariants = () => (
+  <HStack spacing="24px" flexWrap="wrap">
+    <Button intent="primary">Primary</Button>
+    <Button intent="primary" surface="accent">
+      Primary on accent
+    </Button>
+    <Button intent="secondary">Secondary</Button>
+    <Button intent="secondary" surface="accent">
+      Secondary on accent
+    </Button>
+    <Button colorScheme="teal" variant="solid">
+      Solid
+    </Button>
+    <Button colorScheme="teal" variant="outline">
+      Outline
+    </Button>
+    <Button colorScheme="teal" variant="ghost">
+      Ghost
+    </Button>
+    <Button colorScheme="teal" variant="link">
+      Link
+    </Button>
+  </HStack>
+)
 
 export const Outlines: StoryObj<StoryProps> = {
   render: props => (
@@ -109,21 +197,13 @@ export const Outlines: StoryObj<StoryProps> = {
     </>
   ),
 
-  argTypes: {
-    ...pick(getThemingArgTypes(theme, 'Button') ?? {}, ['size'])
-  },
-
   args: {
     children: 'Button'
   }
 }
 
-export const WithVariants = () => (
-  <HStack spacing="24px">
-    <Button colorScheme="primary">Primary</Button>
-    <Button variant="primary-on-accent">Primary on accent</Button>
-    <Button variant="outline">Secondary</Button>
-    {/* <Button variant="secondary-on-accent">Secondary on accent</Button> */}
+export const ChakraVariants = () => (
+  <HStack spacing="24px" flexWrap="wrap">
     <Button colorScheme="teal" variant="solid">
       Solid
     </Button>
@@ -133,9 +213,6 @@ export const WithVariants = () => (
     <Button colorScheme="teal" variant="ghost">
       Ghost
     </Button>
-    {/* <Button colorScheme="teal" variant="ghost-on-accent">
-      Ghost on accent
-    </Button> */}
     <Button colorScheme="teal" variant="link">
       Link
     </Button>
@@ -242,14 +319,10 @@ export const WithSizes = () => (
 
 export const WithIcon = () => (
   <Stack direction="row" spacing={4}>
-    <Button leftIcon={<EmailIcon />} colorScheme="teal" variant="solid">
+    <Button leftIcon={<FiMail />} colorScheme="teal" variant="solid">
       Email
     </Button>
-    <Button
-      rightIcon={<ArrowForwardIcon />}
-      colorScheme="teal"
-      variant="outline"
-    >
+    <Button rightIcon={<FiArrowRight />} colorScheme="teal" variant="outline">
       Call us
     </Button>
   </Stack>
@@ -346,16 +419,16 @@ export const CustomComposition = () => (
 
 export const ButtonWithIcon = () => (
   <Stack direction="row">
-    <IconButton aria-label="Search database" icon={<SearchIcon />} />
+    <IconButton aria-label="Search database" icon={<FiSearch />} />
 
     <IconButton
       colorScheme="blue"
       aria-label="Search database"
-      icon={<SearchIcon />}
+      icon={<FiSearch />}
     />
 
     <IconButton colorScheme="teal" aria-label="Call Segun" size="lg">
-      <PhoneIcon />
+      <FiPhone />
     </IconButton>
   </Stack>
 )
@@ -374,7 +447,7 @@ export const WithAttachedButtons = () => (
     <IconButton
       fontSize="2xl"
       aria-label="Add to friends"
-      icon={<ChevronDownIcon />}
+      icon={<FiChevronDown />}
     />
   </ButtonGroup>
 )
