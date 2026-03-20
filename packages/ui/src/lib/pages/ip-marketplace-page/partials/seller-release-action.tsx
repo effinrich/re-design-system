@@ -13,7 +13,7 @@ export const SellerReleaseAction = ({
   buyerEmail,
   ipListingId
 }: SellerReleaseActionProps) => {
-  const { isOpen, onClose, onOpen } = useDisclosure()
+  const { open, onClose, onOpen } = useDisclosure()
 
   return (
     <>

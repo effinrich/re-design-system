@@ -71,7 +71,7 @@ export const SelectVariants = () => (
 )
 
 export const SelectSizes = () => (
-  <Stack spacing={6}>
+  <Stack gap={6}>
     {['xs', 'sm', 'md', 'lg'].map(size => (
       <Select placeholder={`${size} size`} size={size} key={size} />
     ))}

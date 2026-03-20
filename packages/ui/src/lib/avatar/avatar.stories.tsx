@@ -42,7 +42,7 @@ export const WithCustomIcon = () => (
 )
 
 export const WithSizes = () => (
-  <Stack direction="row" spacing="24px">
+  <Stack direction="row" gap="24px">
     {['xs', 'sm', 'md', 'lg', 'xl', '2xl'].map(size => (
       <Avatar
         key={size}

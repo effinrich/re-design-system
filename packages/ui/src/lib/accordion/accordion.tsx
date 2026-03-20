@@ -1,13 +1,12 @@
-import { useMemo } from 'react'
+import { useMemo, forwardRef } from 'react';
 import { cx } from '@chakra-ui/shared-utils'
 import {
   chakra,
-  forwardRef,
   HTMLChakraProps,
   omitThemingProps,
   ThemingProps,
-  useMultiStyleConfig
-} from '@chakra-ui/react'
+  useMultiStyleConfig,
+} from '@chakra-ui/react';
 
 import {
   AccordionDescendantsProvider,
@@ -39,7 +38,7 @@ export interface AccordionProps
  * @see Docs https://chakra-ui.com/accordion
  * @see WAI-ARIA https://www.w3.org/WAI/ARIA/apg/patterns/accordion/
  */
-export const Accordion = forwardRef<AccordionProps, 'div'>(function Accordion(
+export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion(
   { children, reduceMotion, ...props },
   ref
 ) {

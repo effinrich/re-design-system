@@ -9,7 +9,7 @@ import { Nav } from './nav'
 import { ToggleButton } from './toggle-button'
 
 export const MobileNav = ({ userProfile, numOpcos, numPersons }: any) => {
-  const { isOpen, onToggle, onClose } = useDisclosure()
+  const { open, onToggle, onClose } = useDisclosure()
 
   return (
     <Box

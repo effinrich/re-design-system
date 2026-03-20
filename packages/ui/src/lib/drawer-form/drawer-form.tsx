@@ -27,7 +27,7 @@ export const DrawerForm = (props: {
   action?: string
   success?: ReactNode
 }) => {
-  const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true })
+  const { open, onClose } = useDisclosure({ defaultIsOpen: true })
 
   return (
     <Drawer

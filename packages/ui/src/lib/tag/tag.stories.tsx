@@ -50,7 +50,7 @@ export const Basic = {
 
 export const WithSizes = {
   render: (args: any) => (
-    <HStack spacing="3">
+    <HStack gap="3">
       <Tag size="sm" {...args}>
         Gray
       </Tag>
@@ -66,7 +66,7 @@ export const WithSizes = {
 
 export const ColorSchemes = {
   render: (args: any) => (
-    <HStack spacing="3">
+    <HStack gap="3">
       <Tag size="sm" {...args}>
         Default
       </Tag>
@@ -97,7 +97,7 @@ export const WithLeftIcon = {
 
 export const WithRightIcon = {
   render: (args: any) => (
-    <HStack spacing="3">
+    <HStack gap="3">
       <Tag colorScheme="cyan" {...args}>
         <TagLabel>Cyan</TagLabel>
         <TagRightIcon w="12px" h="12px" as={AddIcon} />
@@ -113,7 +113,7 @@ export const WithRightIcon = {
 
 export const WithCloseButton = {
   render: (args: any) => (
-    <HStack spacing="3">
+    <HStack gap="3">
       <Tag variant="solid" size="sm" colorScheme="cyan" {...args}>
         <TagLabel>Tab Label</TagLabel>
         <TagCloseButton />

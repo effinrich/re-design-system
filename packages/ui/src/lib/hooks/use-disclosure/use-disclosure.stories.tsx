@@ -13,7 +13,7 @@ import {
 import { useDisclosure, UseDisclosureProps } from './use-disclosure'
 
 const DrawerExample = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
 
   return (
     <>

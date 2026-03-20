@@ -61,7 +61,7 @@ export const Basic: StoryFn<typeof NumberInput> = () => (
 const sizes = ['xs', 'sm', 'md', 'lg'] as const
 
 export const Sizes: StoryFn<typeof NumberInput> = () => (
-  <Stack spacing="6">
+  <Stack gap="6">
     {sizes.map(size => (
       <rh.div key={size}>
         <pre>size = {size}</pre>

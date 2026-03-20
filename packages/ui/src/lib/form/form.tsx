@@ -25,9 +25,7 @@ const Form = ({
   return (
     <Card variant="unstyled" maxWidth="6xl">
       <form onSubmit={onSubmit} name={submitText}>
-        <Stack divider={<StackDivider />} spacing={5}>
-          <CardBody>{children}</CardBody>
-        </Stack>
+        <Stack gap={5}><CardBody>{children}</CardBody></Stack>
         <CardFooter gap={3} justify="end" mt={4}>
           <Button variant="outline" onClick={onCancel}>
             Cancel
@@ -38,7 +36,7 @@ const Form = ({
         </CardFooter>
       </form>
     </Card>
-  )
+  );
 }
 
 export default Form

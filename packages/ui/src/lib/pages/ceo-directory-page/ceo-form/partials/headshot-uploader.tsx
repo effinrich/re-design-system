@@ -91,10 +91,10 @@ const HeadshotUploader = ({
           )}
         </Stack>
       </HStack>
-      {uploadModal.isOpen && newFileDataUrl && (
+      {uploadModal.open && newFileDataUrl && (
         <ImageCropper
           imageSrc={newFileDataUrl}
-          isOpen={uploadModal.isOpen}
+          isOpen={uploadModal.open}
           onClose={uploadModal.onClose}
           onSuccess={croppedFile => {
             if (croppedFile) {
@@ -106,6 +106,6 @@ const HeadshotUploader = ({
         />
       )}
     </>
-  )
+  );
 }
 export default HeadshotUploader

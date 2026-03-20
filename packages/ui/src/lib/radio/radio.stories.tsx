@@ -77,7 +77,7 @@ export const GroupWithWrap = () => {
   const range = Array.from(Array(10)).map((_, i) => i + 1)
   return (
     <RadioGroup onChange={console.log} defaultValue="Option 1">
-      <Wrap spacing={[2, 4, 6]}>
+      <Wrap gap={[2, 4, 6]}>
         {range.map(num => (
           <WrapItem key={num}>
             <Radio value={`Option ${num}`}>{`Option ${num}`}</Radio>
@@ -85,7 +85,7 @@ export const GroupWithWrap = () => {
         ))}
       </Wrap>
     </RadioGroup>
-  )
+  );
 }
 
 export const GroupWithSimpleGrid = () => {
@@ -111,14 +111,14 @@ export const WithHook = () => {
   })
 
   return (
-    <Stack spacing="20px" direction="row" {...getRootProps()}>
+    <Stack gap="20px" direction="row" {...getRootProps()}>
       {options.map(value => (
         <Radio key={value} {...getRadioProps({ value })}>
           {value}
         </Radio>
       ))}
     </Stack>
-  )
+  );
 }
 
 /**

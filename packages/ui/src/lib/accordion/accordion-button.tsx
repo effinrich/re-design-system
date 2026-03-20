@@ -1,10 +1,6 @@
+import { forwardRef } from "react";
 import { cx } from '@chakra-ui/shared-utils'
-import {
-  chakra,
-  forwardRef,
-  HTMLChakraProps,
-  SystemStyleObject
-} from '@chakra-ui/react'
+import { chakra, HTMLChakraProps, SystemStyleObject } from '@chakra-ui/react';
 
 import {
   useAccordionItemContext,
@@ -21,7 +17,7 @@ export type AccordionButtonProps = HTMLChakraProps<'button'>
  * that is appropriate for the information architecture of the page.
  */
 
-export const AccordionButton = forwardRef<AccordionButtonProps, 'button'>(
+export const AccordionButton = forwardRef<HTMLButtonElement, AccordionButtonProps>(
   function AccordionButton(props, ref) {
     const { getButtonProps } = useAccordionItemContext()
     const buttonProps = getButtonProps(props, ref)

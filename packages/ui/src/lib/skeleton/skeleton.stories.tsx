@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useColorMode } from "../../../../../src/components/ui/color-mode";
 import { LoremIpsum } from 'react-lorem-ipsum'
-import { useColorMode } from '@chakra-ui/react'
 
 import { Meta } from '@storybook/react-vite'
 

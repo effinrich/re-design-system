@@ -21,7 +21,7 @@ export const Default: StoryObj<typeof Heading> = {
 
 export const ChangingVisualSize: StoryObj<typeof Heading> = {
   render: args => (
-    <Stack spacing={6}>
+    <Stack gap={6}>
       <Heading as="h1" size="4xl" noOfLines={1}>
         (4xl) In love with React & Next
       </Heading>

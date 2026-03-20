@@ -1,7 +1,7 @@
 import { MdChat, MdMoreHoriz, MdShare, MdThumbUp } from 'react-icons/md'
 
 import type { Meta } from '@storybook/react'
-import type { card } from '@chakra-ui/react'
+import type { card, Stack } from '@chakra-ui/react';
 
 import {
   Avatar,
@@ -74,7 +74,7 @@ export default {
 } as Meta<typeof Divider>
 
 export const Variants = () => (
-  <Stack spacing="4">
+  <Stack gap="4">
     {['elevated', 'outline', 'filled', 'unstyled'].map(variant => (
       <Card key={variant} variant={variant}>
         <CardHeader>
@@ -89,7 +89,7 @@ export const Variants = () => (
 )
 
 export const Sizes = () => (
-  <Stack spacing="4">
+  <Stack gap="4">
     {['sm', 'md', 'lg'].map(size => (
       <Card key={size} size={size}>
         <CardHeader>
@@ -121,16 +121,15 @@ export const WithDivider = () => (
     </CardHeader>
 
     <CardBody>
-      <Stack divider={<StackDivider />} spacing="4">
-        <Box>
-          <Heading size="xs" textTransform="uppercase">
-            Summary
-          </Heading>
-          <Text pt="2" fontSize="sm">
-            View a summary of all your clients over the last month.
-          </Text>
-        </Box>
-        <Box>
+      <Stack gap="4"><Box>
+        <Heading size="xs" textTransform="uppercase">
+          Summary
+        </Heading>
+        <Text pt="2" fontSize="sm">
+          View a summary of all your clients over the last month.
+        </Text>
+      </Box>
+          <Stack.Separator /><Box>
           <Heading size="xs" textTransform="uppercase">
             Overview
           </Heading>
@@ -138,15 +137,14 @@ export const WithDivider = () => (
             Check out the overview of your clients.
           </Text>
         </Box>
-        <Box>
-          <Heading size="xs" textTransform="uppercase">
-            Analysis
-          </Heading>
-          <Text pt="2" fontSize="sm">
-            See a detailed analysis of all your business clients.
-          </Text>
-        </Box>
-      </Stack>
+        <Stack.Separator /><Box>
+        <Heading size="xs" textTransform="uppercase">
+          Analysis
+        </Heading>
+        <Text pt="2" fontSize="sm">
+          See a detailed analysis of all your business clients.
+        </Text>
+      </Box></Stack>
     </CardBody>
   </Card>
 )
@@ -159,7 +157,7 @@ export const WithImage = () => (
         alt="Green double couch with wooden legs"
         borderRadius="lg"
       />
-      <Stack mt="6" spacing="3">
+      <Stack mt="6" gap="3">
         <Heading size="md">Living room Sofa</Heading>
         <Text>
           This sofa is perfect for modern tropical spaces, baroque inspired
@@ -213,7 +211,7 @@ export const HorizontalCard = () => (
 export const Advanced = () => (
   <Card maxW="md">
     <CardHeader>
-      <HStack spacing="4">
+      <HStack gap="4">
         <Avatar name="Dan Abramov" src="https://bit.ly/dan-abramov" />
 
         <Box flex="1">

@@ -17,10 +17,10 @@ export const BannerAlert = ({
   return (
     <Alert status="warning" {...rest}>
       <AlertIcon {...(icon && { as: icon })} />
-      <HStack spacing={2}>
+      <HStack gap={2}>
         {children}
         {rightElement}
       </HStack>
     </Alert>
-  )
+  );
 }

@@ -224,7 +224,7 @@ export const CeoForm = ({ apiError, isEdit = false, user }: CeoFormProps) => {
                 colorScheme="primary"
                 onBlur={onBlur}
               >
-                <Stack spacing={4}>
+                <Stack gap={4}>
                   <Radio value="OPT_IN">
                     Yes, I want to <b>opt-in</b> to having my profile be visible
                     in the directory.
@@ -367,5 +367,5 @@ export const CeoForm = ({ apiError, isEdit = false, user }: CeoFormProps) => {
         />
       </Stack>
     </form>
-  )
+  );
 }

@@ -124,14 +124,13 @@ export const ProductTeamDefaults: StoryObj<StoryProps> = {
 export const SemanticActions = () => {
   return (
     <Stack gap={6}>
-      <HStack spacing="24px" flexWrap="wrap">
+      <HStack gap="24px" flexWrap="wrap">
         <Button intent="primary">Primary action</Button>
         <Button intent="secondary">Secondary action</Button>
         <Button intent="danger">Delete record</Button>
       </HStack>
-
       <Box bg="primary.600" borderRadius="lg" p={6}>
-        <HStack spacing="24px" flexWrap="wrap">
+        <HStack gap="24px" flexWrap="wrap">
           <Button intent="primary" surface="accent">
             Primary on accent
           </Button>
@@ -140,8 +139,7 @@ export const SemanticActions = () => {
           </Button>
         </HStack>
       </Box>
-
-      <HStack spacing="24px" flexWrap="wrap">
+      <HStack gap="24px" flexWrap="wrap">
         <Button intent="primary" isLoading loadingText="Saving">
           Save changes
         </Button>
@@ -153,11 +151,11 @@ export const SemanticActions = () => {
         </Button>
       </HStack>
     </Stack>
-  )
+  );
 }
 
 export const WithVariants = () => (
-  <HStack spacing="24px" flexWrap="wrap">
+  <HStack gap="24px" flexWrap="wrap">
     <Button intent="primary">Primary</Button>
     <Button intent="primary" surface="accent">
       Primary on accent
@@ -203,7 +201,7 @@ export const Outlines: StoryObj<StoryProps> = {
 }
 
 export const ChakraVariants = () => (
-  <HStack spacing="24px" flexWrap="wrap">
+  <HStack gap="24px" flexWrap="wrap">
     <Button colorScheme="teal" variant="solid">
       Solid
     </Button>
@@ -241,7 +239,7 @@ export const WithColors = () => (
       </ButtonGroup>
     </Box>
 
-    <Wrap spacing={4}>
+    <Wrap gap={4}>
       <WrapItem>
         <Button colorScheme="gray">Gray</Button>
       </WrapItem>
@@ -318,7 +316,7 @@ export const WithSizes = () => (
 )
 
 export const WithIcon = () => (
-  <Stack direction="row" spacing={4}>
+  <Stack direction="row" gap={4}>
     <Button leftIcon={<FiMail />} colorScheme="teal" variant="solid">
       Email
     </Button>
@@ -329,7 +327,7 @@ export const WithIcon = () => (
 )
 
 export const WithReactIcons = () => (
-  <Stack direction="row" spacing={4} align="center">
+  <Stack direction="row" gap={4} align="center">
     <Button leftIcon={<MdBuild />} colorScheme="pink" variant="solid">
       Settings
     </Button>
@@ -340,7 +338,7 @@ export const WithReactIcons = () => (
 )
 
 export const WithLoadingState = () => (
-  <Stack direction="row" spacing={4}>
+  <Stack direction="row" gap={4}>
     <Button isLoading colorScheme="teal" variant="solid">
       Email
     </Button>
@@ -366,7 +364,7 @@ export const WithCustomLoadingState = () => (
 )
 
 export const WithLoadingSpinnerPlacement = () => (
-  <Stack direction="row" spacing={4} align="center">
+  <Stack direction="row" gap={4} align="center">
     <Button
       isLoading
       loadingText="Loading"
@@ -389,7 +387,7 @@ export const WithLoadingSpinnerPlacement = () => (
 )
 
 export const WithDisabled = () => (
-  <HStack spacing="24px">
+  <HStack gap="24px">
     <Button isDisabled colorScheme="teal" variant="solid">
       Button
     </Button>

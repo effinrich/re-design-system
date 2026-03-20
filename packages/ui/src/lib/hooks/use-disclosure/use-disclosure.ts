@@ -34,7 +34,8 @@ export function useDisclosure(props: UseDisclosureProps = {}) {
 
   const isControlled = isOpenProp !== undefined
 
-  const uid = useId()
+  // Use React.useId instead (available in React 18+)
+  const uid = useId();
   const id = idProp ?? `disclosure-${uid}`
 
   const onClose = useCallback(() => {

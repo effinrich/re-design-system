@@ -22,7 +22,7 @@ export const ResearchHubPage = ({
   const tabs = useGetTabs(hideArticlesSupport)
   const activeTab = useGetActiveTab(tabs)
   return (
-    <Stack spacing="6">
+    <Stack gap="6">
       <SectionHeader
         title="Research Hub"
         isDivider={false}
@@ -43,5 +43,5 @@ export const ResearchHubPage = ({
         </TabPanels>
       </Tabs>
     </Stack>
-  )
+  );
 }

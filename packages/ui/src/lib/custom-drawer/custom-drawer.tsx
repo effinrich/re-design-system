@@ -44,7 +44,7 @@ export const CustomDrawer = forwardRef(
     }: CustomDrawerProps,
     ref
   ) => {
-    const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true })
+    const { open, onClose } = useDisclosure({ defaultIsOpen: true })
 
     useImperativeHandle(ref, () => ({
       handleOnClose() {

@@ -9,7 +9,7 @@ export interface VendorContactInfoProps {
 const VendorContactInfo = ({ name, email }: VendorContactInfoProps) => (
   <Flex direction="column">
     <Text>{name}</Text>
-    <HStack spacing="2">
+    <HStack gap="2">
       <Link isExternal href={`mailto:${email}`}>
         <Text as="span">{email}</Text>
       </Link>

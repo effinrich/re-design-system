@@ -205,7 +205,8 @@ export function useAccordionItem(props: UseAccordionItemProps) {
   /**
    * Generate unique ids for all accordion item components (button and panel)
    */
-  const reactId = useId()
+  // Use React.useId instead (available in React 18+)
+  const reactId = useId();
   const uid = id ?? reactId
 
   const buttonId = `accordion-button-${uid}`

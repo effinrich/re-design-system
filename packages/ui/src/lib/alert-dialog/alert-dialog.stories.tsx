@@ -67,7 +67,7 @@ export default {
 } as Meta<typeof AlertDialog>
 
 const BasicUsageHooks = (args: any) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   const cancelRef = useRef<{ handleOnClose(): void }>()
   return (
     <>
@@ -110,7 +110,7 @@ export const BasicUsage = {
 }
 
 const TransitionHooks = (args: any) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   const cancelRef = useRef<{ handleOnClose(): void }>()
 
   return (

@@ -18,7 +18,7 @@ interface NoSearchTermsProps {
 export const NoSearchTerms = ({ children }: NoSearchTermsProps) => {
   return (
     <Flex direction="row" alignItems="center" justifyContent="center" h="50vh">
-      <VStack w="lg" spacing={4}>
+      <VStack w="lg" gap={4}>
         <Circle
           bg="primary.200"
           borderColor="primary.100"
@@ -43,7 +43,7 @@ export const NoSearchTerms = ({ children }: NoSearchTermsProps) => {
         </Button>
       </VStack>
     </Flex>
-  )
+  );
 }
 
 export default NoSearchTerms

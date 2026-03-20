@@ -18,7 +18,7 @@ export interface DisclaimerModalProps {
 
 export const DisclaimerModal = forwardRef(
   ({ children, header, buttonText }: DisclaimerModalProps, ref) => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { open, onOpen, onClose } = useDisclosure()
 
     useImperativeHandle(ref, () => ({
       handleOnOpen() {

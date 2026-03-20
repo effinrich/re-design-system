@@ -77,7 +77,7 @@ export const MyRequestsPage = () => {
                   Results: {ips?.page.totalElements}
                 </Text>
               </VStack>
-              <HStack spacing={4}>
+              <HStack gap={4}>
                 <Text whiteSpace="nowrap" color="gray.600" fontSize={14}>
                   Sort by
                 </Text>
@@ -190,7 +190,7 @@ export const MyRequestsPage = () => {
         )}
       </Flex>
     </Box>
-  )
+  );
 }
 
 export default MyRequestsPage

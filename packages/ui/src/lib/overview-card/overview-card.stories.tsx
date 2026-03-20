@@ -52,7 +52,7 @@ export const WithCards: StoryObj<typeof OverviewCard> = {
   args: {},
   render: args => (
     <OverviewCard {...args}>
-      <Stack spacing={6}>
+      <Stack gap={6}>
         {new Array(2).fill(mockItem).map(item => (
           <ListCard key={item.type}>
             <ListCardHeader title="Item" />

@@ -311,7 +311,7 @@ export const CallNotesForm = ({
                     >
                       <MdOutlineFileUpload size={20} />
                     </Box>
-                    <HStack spacing={1}>
+                    <HStack gap={1}>
                       <Button
                         variant="link"
                         fontWeight="normal"
@@ -398,5 +398,5 @@ export const CallNotesForm = ({
         )}
       </FormProvider>
     </Flex>
-  )
+  );
 }

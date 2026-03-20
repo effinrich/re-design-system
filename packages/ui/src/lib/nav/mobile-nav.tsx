@@ -35,7 +35,7 @@ const Bar = rh('span', {
 })
 
 export const MobileNav = ({ userInfo }: MobileNavProps) => {
-  const { isOpen, onToggle, onClose } = useDisclosure()
+  const { open, onToggle, onClose } = useDisclosure()
 
   return (
     <Box

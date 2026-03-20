@@ -1,11 +1,6 @@
-import { useMemo } from 'react'
+import { useMemo, forwardRef } from 'react';
 import { cx } from '@chakra-ui/shared-utils'
-import {
-  chakra,
-  forwardRef,
-  HTMLChakraProps,
-  SystemStyleObject
-} from '@chakra-ui/react'
+import { chakra, HTMLChakraProps, SystemStyleObject } from '@chakra-ui/react';
 
 import { AccordionItemProvider, useAccordionStyles } from './accordion-context'
 import { useAccordionItem, UseAccordionItemProps } from './use-accordion'
@@ -27,7 +22,7 @@ export interface AccordionItemProps
  * It also provides context for the accordion button and panel.
  */
 
-export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
+export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
   function AccordionItem(props, ref) {
     const { children, className } = props
     const { htmlProps, ...context } = useAccordionItem(props)

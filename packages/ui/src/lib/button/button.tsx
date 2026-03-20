@@ -20,12 +20,12 @@ export interface ButtonProps extends Omit<ChakraButtonProps, 'variant'> {
 }
 
 interface ResolvedButtonProps {
-  colorScheme?: ChakraButtonProps['colorScheme']
+  colorPalette?: ChakraButtonProps['colorPalette']
   variant?: ButtonVariant
 }
 
 interface ButtonRecipeOptions {
-  colorScheme?: ChakraButtonProps['colorScheme']
+  colorPalette?: ChakraButtonProps['colorPalette']
   intent?: ButtonIntent
   surface?: ButtonSurface
   variant?: ButtonVariant
@@ -50,7 +50,7 @@ const intentVariants: Record<
 }
 
 const intentColorSchemes: Partial<
-  Record<ButtonIntent, ChakraButtonProps['colorScheme']>
+  Record<ButtonIntent, ChakraButtonProps['colorPalette']>
 > = {
   danger: 'red'
 }

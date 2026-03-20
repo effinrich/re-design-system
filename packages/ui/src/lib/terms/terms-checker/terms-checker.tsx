@@ -14,7 +14,7 @@ const TermsChecker = ({ children }: ConsentCheckerProps) => {
   const { data: hasUserConsented, isFetched: hasUserConsentedFetched } =
     useHasUserConsented()
 
-  const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true })
+  const { open, onClose } = useDisclosure({ defaultIsOpen: true })
 
   if (!hasUserConsentedFetched) {
     return <Loader />

@@ -19,7 +19,7 @@ export const Default = () => {
   const [selected, setSelected] = useState<string>()
   return (
     <RadioGroup value={selected} onChange={setSelected}>
-      <Stack spacing={4}>
+      <Stack gap={4}>
         <ButtonRadio
           title="Title 1"
           subtitle="Subtitle for option 1"
@@ -34,5 +34,5 @@ export const Default = () => {
         />
       </Stack>
     </RadioGroup>
-  )
+  );
 }

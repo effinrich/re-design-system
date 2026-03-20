@@ -1,6 +1,6 @@
-import { useColorMode } from '@chakra-ui/react'
-
 import { IconButton } from '../icon-button/icon-button'
+
+import { useColorMode } from "../../../../../src/components/ui/color-mode";
 import { MoonIcon } from '../icons/src/Moon'
 import { SunIcon } from '../icons/src/Sun'
 

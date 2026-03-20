@@ -48,7 +48,7 @@ const IpListingDetailsPage = () => {
   )
   const tabs = useGetTabs(companyRole)
   const activeTab = useGetActiveTab(tabs)
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
 
   if (!ipListing) {
     return <Loader />

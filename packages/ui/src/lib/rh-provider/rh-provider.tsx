@@ -32,11 +32,11 @@ export const RhProvider = ({
   return (
     <ChakraProvider
       colorModeManager={colorModeManager}
-      theme={theme}
+      value={theme}
       {...props}
     >
       <CSSReset />
       {children}
     </ChakraProvider>
-  )
+  );
 }

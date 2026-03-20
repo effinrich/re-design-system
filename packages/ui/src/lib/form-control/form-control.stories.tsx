@@ -8,7 +8,7 @@ import {
   NumberInputStepper,
   Radio,
   RadioGroup,
-  Select
+  NativeSelect
 } from '@chakra-ui/react'
 import { Field, Form, Formik } from 'formik'
 
@@ -41,17 +41,17 @@ export const WithRadioGroup = () => {
   return (
     <FormControl as="fieldset">
       <FormLabel as="legend">Favorite Naruto Character</FormLabel>
-      <RadioGroup defaultValue="Itachi">
-        <HStack spacing="24px">
-          <Radio value="Sasuke">Sasuke</Radio>
-          <Radio value="Nagato">Nagato</Radio>
-          <Radio value="Itachi">Itachi</Radio>
-          <Radio value="Sage of the six Paths">Sage of the six Paths</Radio>
+      <RadioGroup.Root defaultValue="Itachi">
+        <HStack gap="24px">
+          <RadioGroup.Item value="Sasuke"><RadioGroup.ItemHiddenInput /><RadioGroup.ItemIndicator /><RadioGroup.ItemText>Sasuke</RadioGroup.ItemText></RadioGroup.Item>
+          <RadioGroup.Item value="Nagato"><RadioGroup.ItemHiddenInput /><RadioGroup.ItemIndicator /><RadioGroup.ItemText>Nagato</RadioGroup.ItemText></RadioGroup.Item>
+          <RadioGroup.Item value="Itachi"><RadioGroup.ItemHiddenInput /><RadioGroup.ItemIndicator /><RadioGroup.ItemText>Itachi</RadioGroup.ItemText></RadioGroup.Item>
+          <RadioGroup.Item value="Sage of the six Paths"><RadioGroup.ItemHiddenInput /><RadioGroup.ItemIndicator /><RadioGroup.ItemText>Sage of the six Paths</RadioGroup.ItemText></RadioGroup.Item>
         </HStack>
-      </RadioGroup>
+      </RadioGroup.Root>
       <FormHelperText>Select only if you're a fan.</FormHelperText>
     </FormControl>
-  )
+  );
 }
 
 export const WithErrorMessage = () => {
@@ -86,23 +86,26 @@ export const WithRequiredField = () => (
 export const WithSelect = () => (
   <FormControl>
     <FormLabel>Country</FormLabel>
-    <Select placeholder="Select country">
-      <option>United Arab Emirates</option>
-      <option>Nigeria</option>
-    </Select>
+    <NativeSelect.Root>
+      <NativeSelect.Field placeholder="Select country">
+        <option>United Arab Emirates</option>
+        <option>Nigeria</option>
+      </NativeSelect.Field>
+      <NativeSelect.Indicator />
+    </NativeSelect.Root>
   </FormControl>
 )
 
 export const WithNumberInput = () => (
   <FormControl>
     <FormLabel>Amount</FormLabel>
-    <NumberInput max={50} min={10}>
-      <NumberInputField />
-      <NumberInputStepper>
-        <NumberIncrementStepper />
-        <NumberDecrementStepper />
-      </NumberInputStepper>
-    </NumberInput>
+    <NumberInput.Root max={50} min={10}>
+      <NumberInput.Input />
+      <NumberInput.Control>
+        <NumberInput.IncrementTrigger />
+        <NumberInput.DecrementTrigger />
+      </NumberInput.Control>
+    </NumberInput.Root>
   </FormControl>
 )
 

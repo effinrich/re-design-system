@@ -11,14 +11,12 @@ import parse from 'html-react-parser'
  * We should look into escaping this on the search server at some point.
  */
 const escapeHtmlExceptHighlighting = (unsafe: string) => {
-  return (
-    unsafe
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      // unescape <em> and </em>
-      .replace(/&lt;em&gt;/g, '<em>')
-      .replace(/&lt;\/em&gt;/g, '</em>')
-  )
+  return (unsafe
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    // unescape <em> and </em>
+    .replace(/&lt;em&gt;/g, '<em>')
+    .replace(/&lt;\/em&gt;/g, '</em>'));
 }
 
 interface SearchMatchesProps {

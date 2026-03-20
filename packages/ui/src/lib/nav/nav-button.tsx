@@ -30,7 +30,7 @@ export const NavButton = ({
       color={isActive ? undefined : 'white'}
     >
       <Flex justify="space-between" width="100%">
-        <HStack spacing="3">
+        <HStack gap="3">
           <Icon as={icon} boxSize={5} />
           <Text>{children}</Text>
         </HStack>

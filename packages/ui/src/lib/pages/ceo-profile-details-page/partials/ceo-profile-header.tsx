@@ -67,7 +67,7 @@ const CeoProfileHeader = ({
     // avatarHref={pictureHref}
     backButtonText="Back to directory"
     subtitle={
-      <Stack direction={['column', 'column', 'row']} spacing={[2, 2, 10]}>
+      <Stack direction={['column', 'column', 'row']} gap={[2, 2, 10]}>
         <HStack>
           <Icon as={MdEmail} boxSize={6} color="gray.500" />
           <Link href={`mailto:${email}`} fontWeight="500" data-testid="email">

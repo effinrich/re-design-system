@@ -24,7 +24,7 @@ const CompanyDetailsPage = () => {
   const activeTab = useGetActiveTab(tabs)
 
   return company ? (
-    <Stack spacing={6}>
+    <Stack gap={6}>
       <BackButton to="/companies">Back to companies</BackButton>
       {company.isMarketplaceCompany ? (
         <MarketplaceHeader
@@ -54,7 +54,7 @@ const CompanyDetailsPage = () => {
     </Stack>
   ) : (
     <Loader />
-  )
+  );
 }
 
 export default CompanyDetailsPage

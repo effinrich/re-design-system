@@ -64,7 +64,7 @@ const VendorDetailsPage = ({
           />
         </DetailsCardRow>
         <DetailsCardRow title="Who to contact">
-          <HStack wrap="wrap" spacing={6} flex={1}>
+          <HStack wrap="wrap" gap={6} flex={1}>
             {contacts?.map(contact => (
               <VendorContactInfo
                 key={contact.email}
@@ -94,7 +94,7 @@ const VendorDetailsPage = ({
         </DetailsCardRow>
       </DetailsCardBody>
     </DetailsCard>
-  )
+  );
 }
 
 export default VendorDetailsPage

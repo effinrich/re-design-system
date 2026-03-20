@@ -285,9 +285,9 @@ export const ResearchSprintForm = ({
         {showAddtlFields && (
           <>
             <FormField name="sampleSize" label="n=">
-              <NumberInput>
-                <NumberInputField {...form.register('sampleSize')} />
-              </NumberInput>
+              <NumberInput.Root>
+                <NumberInput.Input {...form.register('sampleSize')} />
+              </NumberInput.Root>
             </FormField>
 
             <Alert status="info">
@@ -482,5 +482,5 @@ export const ResearchSprintForm = ({
         )}
       </FormProvider>
     </Flex>
-  )
+  );
 }

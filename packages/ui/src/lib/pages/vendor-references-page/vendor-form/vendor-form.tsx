@@ -94,8 +94,7 @@ export const VendorForm = ({
         submitText={submitText}
         isSticky
       >
-        <Stack spacing={8} divider={<StackDivider borderColor="gray.200" />}>
-          <Controller
+        <Stack gap={8}><Controller
             name="name"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -111,8 +110,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="vendorType"
             control={control}
             render={({ field: { onChange, name, ref, value } }) => (
@@ -133,7 +131,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-          {/* <Controller
+          <Stack.Separator borderColor="gray.200" />{/* <Controller
             name="vendorType"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -157,7 +155,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           /> */}
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="subcategories"
             control={control}
             render={({
@@ -188,8 +186,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="description"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -212,7 +209,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="hasPlatformAgreement"
             control={control}
             render={({
@@ -233,7 +230,7 @@ export const VendorForm = ({
                   colorScheme="primary"
                   onBlur={onBlur}
                 >
-                  <Stack spacing={4}>
+                  <Stack gap={4}>
                     <Radio value="true">Yes</Radio>
                     <Radio value="false">No</Radio>
                   </Stack>
@@ -241,8 +238,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="vendorPointContact"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -266,7 +262,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="pricing"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -290,7 +286,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="discountInfo"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -314,7 +310,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="feedbackFromOpCos"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -338,7 +334,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="pros"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -362,8 +358,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="cons"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -387,7 +382,7 @@ export const VendorForm = ({
               </FormFieldMaster>
             )}
           />
-          <Controller
+          <Stack.Separator borderColor="gray.200" /><Controller
             name="features"
             control={control}
             render={({ field: { name, onChange, value, onBlur, ref } }) => (
@@ -410,11 +405,10 @@ export const VendorForm = ({
                 />
               </FormFieldMaster>
             )}
-          />
-        </Stack>
+          /></Stack>
       </FormMaster>
     </FormProvider>
-  )
+  );
 }
 
 export default VendorForm

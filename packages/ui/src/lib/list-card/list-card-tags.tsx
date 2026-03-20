@@ -6,12 +6,12 @@ export interface ListCardTagProps {
 
 export const ListCardTags = ({ values }: ListCardTagProps) => {
   return (
-    <HStack flex={1} spacing={4} wrap="wrap">
+    <HStack flex={1} gap={4} wrap="wrap">
       {values?.map(value => (
         <Tag key={value} variant="solid">
           {value}
         </Tag>
       ))}
     </HStack>
-  )
+  );
 }

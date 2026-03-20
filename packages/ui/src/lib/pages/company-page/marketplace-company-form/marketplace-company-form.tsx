@@ -47,7 +47,7 @@ const MarketplaceCompanyForm = ({
         onCancel={onCancel}
         submitText={submitText}
       >
-        <Stack spacing={6}>
+        <Stack gap={6}>
           <Controller
             name="activityType"
             control={methods.control}
@@ -67,7 +67,7 @@ const MarketplaceCompanyForm = ({
                   onBlur={onBlur}
                   isDisabled={isEdit}
                 >
-                  <Stack spacing={4}>
+                  <Stack gap={4}>
                     {activityTypes.map(type => (
                       <Radio key={type.value} value={type.value}>
                         {type.displayName}
@@ -186,7 +186,7 @@ const MarketplaceCompanyForm = ({
         </Stack>
       </Form>
     </FormProvider>
-  )
+  );
 }
 
 export default MarketplaceCompanyForm

@@ -1,5 +1,6 @@
+import { forwardRef } from "react";
 import { cx } from '@chakra-ui/shared-utils'
-import { chakra, forwardRef, HTMLChakraProps, Collapse } from '@chakra-ui/react'
+import { chakra, HTMLChakraProps, Collapsible } from '@chakra-ui/react';
 
 export interface CollapseProps {
   in?: boolean
@@ -28,7 +29,7 @@ export interface AccordionPanelProps extends HTMLChakraProps<'div'> {
  *
  * It uses the `Collapse` component to animate its height.
  */
-export const AccordionPanel = forwardRef<AccordionPanelProps, 'div'>(
+export const AccordionPanel = forwardRef<HTMLDivElement, AccordionPanelProps>(
   function AccordionPanel(props, ref) {
     const { className, motionProps, ...rest } = props
 
@@ -51,10 +52,12 @@ export const AccordionPanel = forwardRef<AccordionPanelProps, 'div'>(
 
     if (!reduceMotion) {
       return (
-        <Collapse in={isOpen} {...motionProps}>
-          {child}
-        </Collapse>
-      )
+        <Collapsible.Root open={isOpen} {...motionProps}>
+          <Collapsible.Content>
+            {child}
+          </Collapsible.Content>
+        </Collapsible.Root>
+      );
     }
 
     return child

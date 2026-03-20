@@ -9,7 +9,7 @@ interface OptInFormProps {
 const OptInForm = ({ isOptIn, setIsOptIn }: OptInFormProps) => (
   <CardBody>
     <RadioGroup colorScheme="primary" value={isOptIn} onChange={setIsOptIn}>
-      <Stack spacing={4}>
+      <Stack gap={4}>
         <ButtonRadio
           value="OPT_IN"
           isChecked={isOptIn === 'OPT_IN'}

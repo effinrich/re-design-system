@@ -62,25 +62,24 @@ export const WithResize = () => {
 
   return (
     <>
-      <RadioGroup defaultValue={resize} onChange={setResize} mb={6}>
-        <HStack direction="row" spacing={5}>
-          <Radio value="horizontal">Horizontal</Radio>
-          <Radio value="vertical">Vertical</Radio>
-          <Radio value="none">None</Radio>
+      <RadioGroup.Root defaultValue={resize} onValueChange={setResize} mb={6}>
+        <HStack direction="row" gap={5}>
+          <RadioGroup.Item value="horizontal"><RadioGroup.ItemHiddenInput /><RadioGroup.ItemIndicator /><RadioGroup.ItemText>Horizontal</RadioGroup.ItemText></RadioGroup.Item>
+          <RadioGroup.Item value="vertical"><RadioGroup.ItemHiddenInput /><RadioGroup.ItemIndicator /><RadioGroup.ItemText>Vertical</RadioGroup.ItemText></RadioGroup.Item>
+          <RadioGroup.Item value="none"><RadioGroup.ItemHiddenInput /><RadioGroup.ItemIndicator /><RadioGroup.ItemText>None</RadioGroup.ItemText></RadioGroup.Item>
         </HStack>
-      </RadioGroup>
-
+      </RadioGroup.Root>
       <Textarea
         placeholder="Here is a sample placeholder"
         size="sm"
         resize={resize}
       />
     </>
-  )
+  );
 }
 
 export const WithSizes = () => (
-  <VStack align="start" spacing={8}>
+  <VStack align="start" gap={8}>
     {['xs', 'sm', 'md', 'lg'].map(size => (
       <Textarea
         key={size}
@@ -92,7 +91,7 @@ export const WithSizes = () => (
 )
 
 export const WithStates = () => (
-  <Stack align="start" spacing={8}>
+  <Stack align="start" gap={8}>
     <Textarea placeholder="Idle" />
     <Textarea isInvalid placeholder="isInvalid" />
     <Textarea isDisabled placeholder="isDisabled" />
@@ -101,7 +100,7 @@ export const WithStates = () => (
 )
 
 export const WithVariants = () => (
-  <Stack align="start" spacing={8}>
+  <Stack align="start" gap={8}>
     <Textarea variant="outline" placeholder="Outline" />
     <Textarea variant="filled" placeholder="Filled" />
     <Textarea variant="flushed" placeholder="Flushed" />
@@ -110,7 +109,7 @@ export const WithVariants = () => (
 )
 
 export const WithFocusAndErrorColors = () => (
-  <Stack align="start" spacing={10}>
+  <Stack align="start" gap={10}>
     <Textarea
       focusBorderColor="lime"
       placeholder="Here is a sample placeholder"

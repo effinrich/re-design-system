@@ -180,13 +180,13 @@ export const CheckboxGroupExample = () => {
       defaultValue={['one', 'two']}
       onChange={value => console.log(value)}
     >
-      <Stack align="start" direction={['column', 'row']} spacing={[2, 4, 6]}>
+      <Stack align="start" direction={['column', 'row']} gap={[2, 4, 6]}>
         <Checkbox value="one">One</Checkbox>
         <Checkbox value="two">Two</Checkbox>
         <Checkbox value="three">Three</Checkbox>
       </Stack>
     </CheckboxGroup>
-  )
+  );
 }
 
 export const ResponsiveCheckboxGroup = () => {
@@ -195,13 +195,13 @@ export const ResponsiveCheckboxGroup = () => {
       defaultValue={['one', 'two']}
       onChange={value => console.log(value)}
     >
-      <Stack spacing={[2, 4, 6]} direction={['column', 'row']}>
+      <Stack gap={[2, 4, 6]} direction={['column', 'row']}>
         <Checkbox value="one">One</Checkbox>
         <Checkbox value="two">Two</Checkbox>
         <Checkbox value="three">Three</Checkbox>
       </Stack>
     </CheckboxGroup>
-  )
+  );
 }
 
 type Value = string | number
@@ -217,13 +217,13 @@ export const ControlledCheckboxGroup = () => {
         setValue(value)
       }}
     >
-      <Stack direction="row" spacing="40px">
+      <Stack direction="row" gap="40px">
         <Checkbox value="one">One</Checkbox>
         <Checkbox value="two">Two</Checkbox>
         <Checkbox value="three">Three</Checkbox>
       </Stack>
     </CheckboxGroup>
-  )
+  );
 }
 
 export const CustomCheckboxGroup = () => {
@@ -290,44 +290,40 @@ export const WithFormControl = () => {
           </HStack>
         </CheckboxGroup>
       </FormControl>
-
       <FormControl id="optInInvalid" isInvalid mt={4}>
         <FormLabel>Invalid Opt-in Example</FormLabel>
         <CheckboxGroup defaultValue={['2', '3']}>
-          <Stack spacing={2}>
+          <Stack gap={2}>
             <Checkbox value="1">Invalid Opt-in 1</Checkbox>
             <Checkbox value="2">Invalid Opt-in 2</Checkbox>
             <Checkbox value="3">Invalid Opt-in 3</Checkbox>
           </Stack>
         </CheckboxGroup>
       </FormControl>
-
       <FormControl id="optInDisabled" isDisabled mt={4}>
         <FormLabel>Disabled Opt-in Example</FormLabel>
         <CheckboxGroup defaultValue={['2', '3']}>
-          <Stack spacing={2}>
+          <Stack gap={2}>
             <Checkbox value="1">Disabled Opt-in 1</Checkbox>
             <Checkbox value="2">Disabled Opt-in 2</Checkbox>
             <Checkbox value="3">Disabled Opt-in 3</Checkbox>
           </Stack>
         </CheckboxGroup>
       </FormControl>
-
       <FormControl id="optInReadonly" isReadOnly mt={4}>
         <FormLabel>Readonly Opt-in Example</FormLabel>
         <CheckboxGroup defaultValue={['2', '3']}>
-          <Stack spacing={2}>
+          <Stack gap={2}>
             <Checkbox value="1">Readonly Opt-in 1</Checkbox>
             <Checkbox value="2">Readonly Opt-in 2</Checkbox>
             <Checkbox value="3">Readonly Opt-in 3</Checkbox>
           </Stack>
         </CheckboxGroup>
       </FormControl>
-
       <FormControl id="optInRequired" isRequired mt={4}>
         <FormLabel>Required Opt-in Example</FormLabel>
         <CheckboxGroup defaultValue={['2', '3']}>
-          <Stack spacing={2}>
+          <Stack gap={2}>
             <Checkbox value="1">Required Opt-in 1</Checkbox>
             <Checkbox value="2">Required Opt-in 2</Checkbox>
             <Checkbox value="3">Required Opt-in 3</Checkbox>
@@ -335,5 +331,5 @@ export const WithFormControl = () => {
         </CheckboxGroup>
       </FormControl>
     </>
-  )
+  );
 }

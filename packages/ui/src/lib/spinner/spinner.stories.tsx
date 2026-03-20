@@ -1,4 +1,12 @@
-import { ChakraProvider, useTheme } from '@chakra-ui/react'
+/*
+ MIGRATION NOTE: The following Chakra UI hooks have been removed.
+ Please replace them with the suggested alternatives:
+
+//   - useTheme: Use Import from system or use useChakraContext
+
+ See: https://chakra-ui.com/docs/get-started/migration#hooks
+*/
+import { ChakraProvider } from '@chakra-ui/react';
 import { mergeWith } from '@chakra-ui/utils'
 
 import { Meta } from '@storybook/react-vite'
@@ -44,7 +52,7 @@ export const WithCustomStyleConfig = () => {
   const theme = useTheme()
   return (
     <ThemeProvider
-      theme={mergeWith(theme, {
+      value={mergeWith(system, {
         components: {
           Spinner: {
             baseStyle: {
@@ -56,5 +64,5 @@ export const WithCustomStyleConfig = () => {
     >
       <Spinner color="red.500" />
     </ThemeProvider>
-  )
+  );
 }

@@ -1,20 +1,8 @@
 /* eslint-disable react/no-children-prop */
-import * as React from 'react'
+import * as React, { forwardRef } from 'react';
 import { FiCheck, FiPhone } from 'react-icons/fi'
 import { useDisclosure } from '@chakra-ui/hooks'
-import {
-  Box,
-  Button,
-  Container,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
-  forwardRef,
-  InputProps,
-  Stack,
-  Text
-} from '@chakra-ui/react'
+import { Box, Button, Container, InputProps, Stack, Text, Field } from '@chakra-ui/react';
 
 import { Meta } from '@storybook/react-vite'
 
@@ -135,7 +123,7 @@ export function PasswordInput() {
 }
 
 export const WithFocusAndErrorColors = () => (
-  <Stack align="start" spacing="10">
+  <Stack align="start" gap="10">
     <Input focusBorderColor="lime" placeholder="Here is a sample placeholder" />
 
     <Input
@@ -159,7 +147,7 @@ export const WithFocusAndErrorColors = () => (
 
 function FormError(props: any) {
   return (
-    <FormErrorMessage
+    <Field.ErrorText
       mt="0"
       bg="red.500"
       color="white"
@@ -168,18 +156,18 @@ function FormError(props: any) {
       borderRadius="sm"
       {...props}
     />
-  )
+  );
 }
 
 export const WithFormControl = () => {
   const [isError, setIsError] = React.useState(false)
   return (
     <Stack align="start">
-      <FormControl id="first-name" isInvalid={isError}>
+      <Field.Root id="first-name" invalid={isError}>
         <Box display="flex" mb="2">
-          <FormLabel mb="0" lineHeight="1em">
+          <Field.Label mb="0" lineHeight="1em">
             Amount
-          </FormLabel>
+          </Field.Label>
           <FormError>is invalid!</FormError>
         </Box>
         <InputGroup size="sm">
@@ -187,15 +175,15 @@ export const WithFormControl = () => {
           <Input placeholder="Enter amount" />
           <InputRightAddon children=".com" />
         </InputGroup>
-        <FormHelperText>Keep it very short and sweet!</FormHelperText>
-      </FormControl>
+        <Field.HelperText>Keep it very short and sweet!</Field.HelperText>
+      </Field.Root>
       <button onClick={() => setIsError(s => !s)}>Toggle Invalid</button>
     </Stack>
-  )
+  );
 }
 
 export const WithInputElementBug = () => {
-  const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: true })
+  const { open, onToggle } = useDisclosure({ defaultIsOpen: true })
   return (
     <>
       <button onClick={onToggle}>Toggle element</button>
@@ -218,6 +206,6 @@ export const InputGroupCustomInputProps = () => {
   )
 }
 
-const CustomInput = forwardRef<InputProps, 'input'>((props, ref) => (
+const CustomInput = forwardRef<HTMLInputElement, InputProps>((props, ref) => (
   <Input ref={ref} color="gray.600" variant="flushed" {...props} />
 ))

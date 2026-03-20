@@ -33,9 +33,7 @@ const FormMaster = ({
   return (
     <Card variant="unstyled">
       <form onSubmit={onSubmit} name={submitText}>
-        <Stack divider={<StackDivider />} spacing={5}>
-          <CardBody>{children}</CardBody>
-        </Stack>
+        <Stack gap={5}><CardBody>{children}</CardBody></Stack>
 
         <Box
           position={isSticky ? 'sticky' : 'relative'}
@@ -61,7 +59,7 @@ const FormMaster = ({
         </Box>
       </form>
     </Card>
-  )
+  );
 }
 
 export default FormMaster

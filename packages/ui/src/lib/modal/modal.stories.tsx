@@ -25,7 +25,7 @@ export default {
 } as Meta<typeof Modal>
 
 export function BasicUsage() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Button onClick={onOpen} maxW="300px">
@@ -54,7 +54,7 @@ export function BasicUsage() {
 }
 
 export function ReturnFocus() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   const finalRef = useRef<HTMLDivElement>(null)
 
   return (
@@ -100,7 +100,7 @@ export function NestedModal() {
       <Button onClick={first.onOpen} maxW="300px">
         Open
       </Button>
-      <Modal isOpen={first.isOpen} onClose={first.onClose}>
+      <Modal isOpen={first.open} onClose={first.onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
@@ -118,7 +118,7 @@ export function NestedModal() {
             </Button>
           </ModalFooter>
 
-          <Modal isOpen={second.isOpen} onClose={second.onClose}>
+          <Modal isOpen={second.open} onClose={second.onClose}>
             <ModalOverlay />
             <ModalContent>
               <ModalHeader>Modal 2 Title</ModalHeader>
@@ -129,7 +129,7 @@ export function NestedModal() {
                 </Button>
               </ModalFooter>
 
-              <Modal isOpen={third.isOpen} onClose={third.onClose}>
+              <Modal isOpen={third.open} onClose={third.onClose}>
                 <ModalOverlay />
                 <ModalContent>
                   <ModalHeader tabIndex={0}>Modal 3 Title</ModalHeader>
@@ -140,11 +140,11 @@ export function NestedModal() {
         </ModalContent>
       </Modal>
     </>
-  )
+  );
 }
 
 export const InsideScroll = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure()
+  const { open, onClose, onOpen } = useDisclosure()
   const btnRef = useRef(null)
   return (
     <>
@@ -176,7 +176,7 @@ export const InsideScroll = () => {
 }
 
 export const AnimationDisabled = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Button onClick={onOpen} maxW="300px">
@@ -202,7 +202,7 @@ export const AnimationDisabled = () => {
 }
 
 export const FullWithLongContent = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Button onClick={onOpen} maxW="300px">
@@ -228,7 +228,7 @@ export const FullWithLongContent = () => {
 }
 
 export function WithCustomMotionProps() {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Button onClick={onOpen} maxW="300px">

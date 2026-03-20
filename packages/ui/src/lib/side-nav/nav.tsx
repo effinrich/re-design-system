@@ -4,7 +4,7 @@ import {
   MdPeople,
   MdSupport
 } from 'react-icons/md'
-import { useColorModeValue } from '@chakra-ui/react'
+import { useColorModeValue } from "../../../../../src/components/ui/color-mode";
 
 import { Divider } from '../divider/divider'
 import { Flex } from '../flex/flex'
@@ -49,10 +49,10 @@ export const Nav = ({
       borderRight="2px"
       borderColor={borderColor}
     >
-      <Stack justify="space-between" spacing="1">
-        <Stack spacing={{ base: '5', sm: '6' }} shouldWrapChildren>
+      <Stack justify="space-between" gap="1">
+        <Stack gap={{ base: '5', sm: '6' }} shouldWrapChildren>
           <RedesignLogo maxW="250px" />
-          <Stack spacing="1">
+          <Stack gap="1">
             {routes.length > 0 &&
               routes.map(
                 (route: any) =>
@@ -79,8 +79,8 @@ export const Nav = ({
               )}
           </Stack>
         </Stack>
-        <Stack spacing={{ base: '5', sm: '6' }}>
-          <Stack spacing="1">
+        <Stack gap={{ base: '5', sm: '6' }}>
+          <Stack gap="1">
             <NavButton label="Support" icon={MdSupport} path="support" />
           </Stack>
           <Divider borderColor={borderColor} />
@@ -94,7 +94,7 @@ export const Nav = ({
         </Stack>
       </Stack>
     </Flex>
-  )
+  );
 }
 
 export default Nav

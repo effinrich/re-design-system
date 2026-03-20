@@ -77,7 +77,7 @@ export default {
 } as Meta<typeof Drawer>
 
 const DrawerExampleHooks = args => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   const btnRef = useRef()
 
   return (
@@ -123,7 +123,7 @@ export const DrawerExample = {
 }
 
 const WithFormHooks = args => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   const firstField = useRef()
   return (
     <>
@@ -150,7 +150,7 @@ const WithFormHooks = args => {
           </DrawerHeader>
 
           <DrawerBody>
-            <Stack spacing="24px">
+            <Stack gap="24px">
               <Box>
                 <FormLabel htmlFor="username">Name</FormLabel>
                 <Input
@@ -202,7 +202,7 @@ const WithFormHooks = args => {
         </DrawerContent>
       </Drawer>
     </>
-  )
+  );
 }
 
 export const WithForm = {
@@ -210,7 +210,7 @@ export const WithForm = {
 }
 
 const WithFormLibraryHooks = (args: any) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
   return (
     <>
       <Container maxW="600px">
@@ -264,7 +264,7 @@ export const WithFormLibrary = {
 
 const WithSizeHooks = (args: any) => {
   const [size, setSize] = useState('')
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
 
   const handleClick = (newSize: string) => {
     setSize(newSize)
@@ -348,7 +348,7 @@ export const WithCustomMotion = {
 }
 
 const WithLongContentHooks = (args: any) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { open, onOpen, onClose } = useDisclosure()
 
   return (
     <>

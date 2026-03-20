@@ -18,7 +18,7 @@ export const VendorReferencesCardsWrapper = ({
   // if (!vendors) return null
 
   return vendors.length > 0 ? (
-    <Stack spacing="6">
+    <Stack gap="6">
       {vendors.map(vendor => {
         return (
           <VendorCard
@@ -46,7 +46,7 @@ export const VendorReferencesCardsWrapper = ({
     </Stack>
   ) : (
     <NoSearchResults searchName="vendor" />
-  )
+  );
 }
 
 export default VendorReferencesCardsWrapper

@@ -21,14 +21,14 @@ export const SideNavBar = ({ router }: any) => {
     >
       <SideNav router={router} />
       <Container py="8" flex="1">
-        <Stack spacing={{ base: '8', lg: '6' }}>
+        <Stack gap={{ base: '8', lg: '6' }}>
           <Stack
-            spacing="4"
+            gap="4"
             direction={{ base: 'column', lg: 'row' }}
             justify="space-between"
             align={{ base: 'start', lg: 'center' }}
           >
-            <Stack spacing="1">
+            <Stack gap="1">
               <Heading
                 size={useBreakpointValue({ base: 'xs', lg: 'sm' })}
                 fontWeight="medium"
@@ -50,7 +50,7 @@ export const SideNavBar = ({ router }: any) => {
         </Stack>
       </Container>
     </Flex>
-  )
+  );
 }
 
 export default SideNavBar
