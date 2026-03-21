@@ -1,6 +1,7 @@
-import { Textarea, TextareaProps } from '@react/ui'
+import { ComponentPropsWithoutRef } from 'react'
+import { Textarea } from '@react/ui'
 
-export const DrawerFormTextArea = (props: TextareaProps) => {
+export const DrawerFormTextArea = (props: ComponentPropsWithoutRef<typeof Textarea>) => {
   return (
     <Textarea
       maxLength={500}

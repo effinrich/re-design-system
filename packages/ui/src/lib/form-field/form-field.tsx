@@ -1,12 +1,12 @@
 import { ReactNode } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { Tooltip } from '@react/ui'
+import { Field } from '../snippets/field'
 import {
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
-  Tooltip
-} from '@react/ui'
+  FieldLabel,
+  FieldErrorText,
+  FieldHelperText
+} from '@chakra-ui/react/field'
 
 interface FormFieldProps {
   name: string
@@ -33,19 +33,19 @@ export const FormField = ({
 
   return (
     <Tooltip
-      label={disabledHelpText}
-      placement="top-start"
-      isDisabled={!disabledHelpText}
+      content={disabledHelpText}
+      positioning={{ placement: 'top-start' }}
+      disabled={!disabledHelpText}
     >
-      <FormControl data-testid={testid} isInvalid={isInvalid}>
-        <FormLabel>{optional ? `${label} (optional)` : label}</FormLabel>
+      <Field data-testid={testid} invalid={isInvalid}>
+        <FieldLabel>{optional ? `${label} (optional)` : label}</FieldLabel>
         {children}
         {isInvalid ? (
-          <FormErrorMessage>{errorMessage}</FormErrorMessage>
+          <FieldErrorText>{errorMessage}</FieldErrorText>
         ) : (
-          <FormHelperText>{helper}</FormHelperText>
+          <FieldHelperText>{helper}</FieldHelperText>
         )}
-      </FormControl>
+      </Field>
     </Tooltip>
   )
 }

@@ -1,36 +1,33 @@
-import { FormControl, Input, Select, styled, Text } from '@react/ui';
+import { chakra } from '@chakra-ui/react'
+import { Input, Text } from '@react/ui'
 
-export const DrawerFormHeader = styled(Text, {
-  baseStyle: {
-    fontsize: '14px',
-    lineheight: '20px',
-    fontweight: 'medium',
+export const DrawerFormHeader = chakra(Text, {
+  base: {
+    fontSize: '14px',
+    lineHeight: '20px',
+    fontWeight: 'medium',
     margin: '0px',
     color: 'gray.700',
   },
-});
+})
 
-export const DrawerFormDescription = styled(Text, {
-  baseStyle: {
+export const DrawerFormDescription = chakra(Text, {
+  base: {
     fontSize: '14px',
     lineHeight: '20px',
     fontWeight: 'normal',
     color: 'gray.500',
   },
-});
+})
 
-export const DrawerFormInput = styled(Input, {
-  baseStyle: { _placeholder: { color: 'gray.500' } },
-});
+export const DrawerFormInput = chakra(Input, {
+  base: { _placeholder: { color: 'gray.500' } },
+})
 
-export const DrawerFormSelect = styled(Select, {
-  baseStyle: { _placeholder: { color: 'gray.500' } },
-});
-
-export const DrawerFormControl = styled(FormControl, {
-  baseStyle: {
+export const DrawerFormControl = chakra('div', {
+  base: {
     display: 'flex',
     flexDir: 'column',
     gap: '3px',
   },
-});
+})

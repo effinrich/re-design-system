@@ -1,9 +1,6 @@
-import {
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel
-} from '@react/ui'
+import type { JSX } from 'react'
+import { Field } from '../snippets/field'
+import { FieldLabel, FieldErrorText, FieldHelperText } from '@chakra-ui/react/field'
 
 import { DrawerFormHeader } from '.'
 
@@ -17,11 +14,11 @@ export interface DrawerFormItemProps {
 
 export const DrawerFormItem = (props: DrawerFormItemProps) => {
   return (
-    <FormControl variant="flex-grid" isInvalid={props.isInvalid}>
-      <DrawerFormHeader as={FormLabel}>{props.label}</DrawerFormHeader>
+    <Field invalid={props.isInvalid}>
+      <DrawerFormHeader as={FieldLabel}>{props.label}</DrawerFormHeader>
       {props.children}
-      <FormErrorMessage>{props.error}</FormErrorMessage>
-      <FormHelperText>{props.helperText}</FormHelperText>
-    </FormControl>
+      <FieldErrorText>{props.error}</FieldErrorText>
+      <FieldHelperText>{props.helperText}</FieldHelperText>
+    </Field>
   )
 }

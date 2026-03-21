@@ -3,90 +3,60 @@ export * from './lib/ui/ui'
 export * from './lib/rh-provider/rh-provider'
 export * from './lib/rh/rh'
 
-// Layout
-export * from './lib/box/box'
-export * from './lib/center/center'
-export * from './lib/container/container'
-export * from './lib/flex/flex'
-export * from './lib/grid/grid'
-export * from './lib/simple-grid/simple-grid'
-export * from './lib/h-stack/h-stack'
-export * from './lib/v-stack/v-stack'
-export * from './lib/stack/stack'
-export * from './lib/wrap/wrap'
-export * from './lib/aspect-ratio/aspect-ratio'
-export * from './lib/divider/divider'
-export * from './lib/square/square'
-export * from './lib/circle/circle'
+// =============================================================================
+// Chakra UI v3 — primitives (no snippet equivalent)
+// =============================================================================
+export * from './lib/chakra-primitives'
 
-// Forms
+// =============================================================================
+// Chakra UI v3 — snippets (compound components with better DX)
+// =============================================================================
+export * from './lib/snippets/accordion'
+export * from './lib/snippets/alert'
+export * from './lib/snippets/avatar'
+export * from './lib/snippets/breadcrumb'
+export * from './lib/snippets/checkbox'
+export * from './lib/snippets/close-button'
+// color-mode snippet excluded: DarkMode conflicts with ./lib/rh/rh export
+// Use useColorMode, ColorModeProvider, etc. from ./lib/rh/rh or @chakra-ui/react directly
+export * from './lib/snippets/dialog'
+export * from './lib/snippets/drawer'
+export * from './lib/snippets/field'
+export * from './lib/snippets/input-group'
+export * from './lib/snippets/menu'
+export * from './lib/snippets/number-input'
+export * from './lib/snippets/popover'
+export * from './lib/snippets/progress'
+export * from './lib/snippets/prose'
+export * from './lib/snippets/provider'
+export * from './lib/snippets/radio'
+export * from './lib/snippets/rating'
+export * from './lib/snippets/select'
+export * from './lib/snippets/skeleton'
+export * from './lib/snippets/slider'
+export * from './lib/snippets/stat'
+export * from './lib/snippets/status'
+export * from './lib/snippets/steps'
+export * from './lib/snippets/switch'
+export * from './lib/snippets/tag'
+export * from './lib/snippets/toaster'
+export * from './lib/snippets/toggle-tip'
+export * from './lib/snippets/tooltip'
+
+// =============================================================================
+// Custom components (project-specific)
+// =============================================================================
+export * from './lib/divider/divider'
 export * from './lib/button/button'
-export * from './lib/checkbox/checkbox'
-export * from './lib/input/input'
-export * from './lib/select/select'
-export * from './lib/textarea/textarea'
-export * from './lib/radio/radio'
-export * from './lib/form-control/form-control'
 export * from './lib/form-field/form-field'
 export * from './lib/form-field-master/form-field-master'
 export * from './lib/form/form'
 export * from './lib/form-master/form-master'
-export * from './lib/number-input/number-input'
-export * from './lib/slider/slider'
-export * from './lib/switch/switch'
-
-// Data Display
-export * from './lib/card/card'
-export * from './lib/table/table'
-export * from './lib/list/list'
-export * from './lib/badge/badge'
-export * from './lib/code/code'
-export * from './lib/stat/stat'
-export * from './lib/stat-card/stat-card'
-export * from './lib/tag/tag'
-
-// Feedback
-export * from './lib/alert/alert'
 export * from './lib/loader/loader'
-export * from './lib/spinner/spinner'
-export * from './lib/skeleton/skeleton'
-export * from './lib/tooltip/tooltip'
-
-// Overlay
-export * from './lib/modal/modal'
-export * from './lib/drawer/drawer'
-export * from './lib/menu/menu'
-
-// Disclosure
-export * from './lib/accordion/accordion'
-export * from './lib/tabs/tabs'
-
-// Navigation
-export * from './lib/breadcrumb/breadcrumb'
-export * from './lib/stepper/stepper'
+export * from './lib/stat-card/stat-card'
 export * from './lib/pagination/pagination'
-export * from './lib/link/link'
-export * from './lib/link-overlay/link-overlay'
-
-// Media
-export * from './lib/avatar/avatar'
-export * from './lib/image/image'
-export * from './lib/icon/icon'
-export * from './lib/icon-button/icon-button'
-
-// Typography
-export * from './lib/heading/heading'
-export * from './lib/text/text'
-
-// Other
-export * from './lib/close-button/close-button'
-export * from './lib/visually-hidden/visually-hidden'
-
-// Theme
-export * from './lib/theme'
 export * from './lib/color-mode-toggle/color-mode-toggle'
 
-// Custom Components
 export * from './lib/alert-dialog/alert-dialog'
 export * from './lib/auto-complete/auto-complete'
 export * from './lib/axios-error-alert/axios-error-alert'
@@ -123,3 +93,6 @@ export * from './lib/side-nav/side-nav'
 export * from './lib/terms/terms'
 export * from './lib/users-table/users-table'
 export * from './lib/vendor-contact-info/vendor-contact-info'
+
+// Theme
+export * from './lib/theme'

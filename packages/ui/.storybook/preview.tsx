@@ -1,4 +1,5 @@
-import { ChakraProvider, defaultSystem } from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react"
+import { system } from "./chakra-theme"
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from "@storybook/react"
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -34,7 +35,7 @@ const preview: Preview = {
     }),
     (Story) => (
       <QueryClientProvider client={queryClient}>
-        <ChakraProvider value={defaultSystem}>
+        <ChakraProvider value={system}>
           <Story />
         </ChakraProvider>
       </QueryClientProvider>

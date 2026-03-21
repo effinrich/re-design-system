@@ -2,11 +2,8 @@ import {
   Box,
   Button,
   Card,
-  CardBody,
-  CardFooter,
   Divider,
-  Stack,
-  StackDivider
+  Stack
 } from '@react/ui'
 
 interface FormProps {
@@ -31,9 +28,9 @@ const FormMaster = ({
   submitText = 'Save changes'
 }: FormProps) => {
   return (
-    <Card variant="unstyled">
+    <Card.Root variant="unstyled">
       <form onSubmit={onSubmit} name={submitText}>
-        <Stack gap={5}><CardBody>{children}</CardBody></Stack>
+        <Stack gap={5}><Card.Body>{children}</Card.Body></Stack>
 
         <Box
           position={isSticky ? 'sticky' : 'relative'}
@@ -43,22 +40,22 @@ const FormMaster = ({
           bgColor="white"
         >
           <Divider mt={8} />
-          <CardFooter gap={3} justify="end" my={4}>
+          <Card.Footer gap={3} justify="end" my={4}>
             <Button onClick={onCancel} variant="outline">
               Cancel
             </Button>
             <Button
-              isDisabled={isPending || !isValid}
-              isLoading={isPending}
-              colorScheme="primary"
+              disabled={isPending || !isValid}
+              loading={isPending}
+              colorPalette="primary"
               type="submit"
             >
               {submitText}
             </Button>
-          </CardFooter>
+          </Card.Footer>
         </Box>
       </form>
-    </Card>
+    </Card.Root>
   );
 }
 

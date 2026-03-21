@@ -4,9 +4,8 @@ import {
   Flex,
   Input,
   InputGroup,
-  InputGroupProps,
-  InputLeftElement,
-  InputProps
+  type InputGroupProps,
+  type InputProps
 } from '@react/ui'
 
 interface SelectionBoxSearchProps extends InputGroupProps {
@@ -22,15 +21,14 @@ export const SelectionBoxSearch = ({
   )
 
   return (
-    <InputGroup {...props}>
-      <InputLeftElement
-        as={Flex}
-        pointerEvents="none"
-        justify="center"
-        align="center"
-      >
-        <MdSearch height="16px" width="16px" />
-      </InputLeftElement>
+    <InputGroup
+      startElement={
+        <Flex pointerEvents="none" justify="center" align="center">
+          <MdSearch height="16px" width="16px" />
+        </Flex>
+      }
+      {...props}
+    >
       <Input
         placeholder="Search"
         aria-label="Search"

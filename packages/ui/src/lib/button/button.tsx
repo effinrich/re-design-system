@@ -56,27 +56,27 @@ const intentColorSchemes: Partial<
 }
 
 export const resolveButtonRecipe = ({
-  colorScheme,
+  colorPalette,
   intent,
   surface = 'default',
   variant
 }: ButtonRecipeOptions): ResolvedButtonProps => {
-  if (variant || colorScheme || !intent) {
-    return { colorScheme, variant }
+  if (variant || colorPalette || !intent) {
+    return { colorPalette, variant }
   }
 
   return {
-    colorScheme: intentColorSchemes[intent],
+    colorPalette: intentColorSchemes[intent],
     variant: intentVariants[intent][surface]
   }
 }
 
 export const Button = forwardRef<ChakraButtonRef, ButtonProps>(function Button(
-  { colorScheme, intent, surface, variant, ...props },
+  { colorPalette, intent, surface, variant, ...props },
   ref
 ) {
   const resolvedProps = resolveButtonRecipe({
-    colorScheme,
+    colorPalette,
     intent,
     surface,
     variant

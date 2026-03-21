@@ -1,6 +1,8 @@
 import React from 'react'
 import { IconType } from 'react-icons/lib'
-import { type AlertProps, Alert, AlertIcon, HStack } from '@react/ui'
+import { HStack } from '@chakra-ui/react'
+
+import { Alert, type AlertProps } from '../snippets/alert'
 
 export interface BannerAlert extends AlertProps {
   children: React.ReactNode
@@ -15,8 +17,11 @@ export const BannerAlert = ({
   ...rest
 }: BannerAlert) => {
   return (
-    <Alert status="warning" {...rest}>
-      <AlertIcon {...(icon && { as: icon })} />
+    <Alert
+      status="warning"
+      icon={icon ? React.createElement(icon) : undefined}
+      {...rest}
+    >
       <HStack gap={2}>
         {children}
         {rightElement}

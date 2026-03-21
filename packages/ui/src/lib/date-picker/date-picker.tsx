@@ -1,16 +1,12 @@
 import { forwardRef, LegacyRef } from 'react'
 import ReactDatePicker from 'react-datepicker'
 import { MdEditCalendar } from 'react-icons/md'
-import { useToken } from '@chakra-ui/react'
-
-import { Icon } from '../icon/icon'
 import {
+  type InputProps,
+  Icon,
   Input,
   InputGroup,
-  InputProps,
-  InputRightElement
-} from '../input/input'
-import { rh } from '../rh/rh'
+} from '@chakra-ui/react'
 
 import StyledDatePicker from './date-picker.styles'
 
@@ -46,9 +42,7 @@ const customDateInput = (
       placeholder="MM/DD/YYYY"
       maxW="100%"
     />
-    <InputRightElement color="gray.600">
-      <Icon as={MdEditCalendar} boxSize={4} />
-    </InputRightElement>
+    <Icon as={MdEditCalendar} boxSize={4} color="gray.600" />
   </>
 )
 customDateInput.displayName = 'DateInput'
@@ -67,11 +61,9 @@ export const DatePicker = ({
   name,
   ...props
 }: DatePickerProps) => {
-  const [primary500] = useToken('colors', ['primary.500'])
-
   return (
     <InputGroup>
-      <StyledDatePicker themeColor={primary500}>
+      <StyledDatePicker themeColor="var(--chakra-colors-primary-500)">
         <ReactDatePicker
           placeholderText={placeholder}
           selected={selected}

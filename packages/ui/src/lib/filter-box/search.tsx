@@ -1,15 +1,12 @@
 import { useState } from 'react'
+import { LuSearch, LuX } from 'react-icons/lu'
 import {
   type InputProps,
-  CloseIcon,
-  FormControl,
   IconButton,
   Input,
-  InputGroup,
-  InputLeftAddon,
-  InputRightElement,
-  SearchIcon
+  InputGroup
 } from '@react/ui'
+import { Field } from '../snippets/field'
 import { useDebounce } from 'rooks'
 interface SearchProps
   extends Omit<InputProps, 'onChange' | 'defaultValue' | 'value'> {
@@ -32,11 +29,25 @@ export const Search = ({
   const [value, setValue] = useState(defaultValue || DEFAULT_VALUE)
   const debouncedOnChange = useDebounce(onChange, 500)
   return (
-    <FormControl py={4}>
-      <InputGroup>
-        <InputLeftAddon>
-          <SearchIcon color="gray.800" w="16px" h="16px" />
-        </InputLeftAddon>
+    <Field py={4}>
+      <InputGroup
+        startElement={<LuSearch color="gray.800" size={16} />}
+        endElement={
+          <IconButton
+            size="sm"
+            variant="ghost"
+            aria-label="clear search"
+            onClick={() => {
+              setValue(DEFAULT_VALUE)
+              // no need to debounce clearing since it's a single action
+              onChange(DEFAULT_VALUE)
+            }}
+            visibility={value ? 'visible' : 'hidden'}
+          >
+            <LuX />
+          </IconButton>
+        }
+      >
         <Input
           size="md"
           placeholder={placeholder}
@@ -48,22 +59,8 @@ export const Search = ({
           value={value}
           {...inputProps}
         />
-        <InputRightElement>
-          <IconButton
-            size="sm"
-            variant="ghost"
-            icon={<CloseIcon />}
-            aria-label="clear search"
-            onClick={() => {
-              setValue(DEFAULT_VALUE)
-              // no need to debounce clearing since it's a single action
-              onChange(DEFAULT_VALUE)
-            }}
-            visibility={value ? 'visible' : 'hidden'}
-          />
-        </InputRightElement>
       </InputGroup>
-    </FormControl>
+    </Field>
   )
 }
 

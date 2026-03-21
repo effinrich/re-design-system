@@ -1,14 +1,12 @@
-import { forwardRef, ReactNode, useImperativeHandle } from 'react'
+import { forwardRef, ReactNode, useImperativeHandle, useState } from 'react'
+import { Button } from '@react/ui'
 import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  useDisclosure
-} from '@react/ui'
+  DialogRoot,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+} from '../snippets/dialog'
 
 export interface DisclaimerModalProps {
   children: ReactNode
@@ -18,27 +16,26 @@ export interface DisclaimerModalProps {
 
 export const DisclaimerModal = forwardRef(
   ({ children, header, buttonText }: DisclaimerModalProps, ref) => {
-    const { open, onOpen, onClose } = useDisclosure()
+    const [open, setOpen] = useState(false)
 
     useImperativeHandle(ref, () => ({
       handleOnOpen() {
-        onOpen()
+        setOpen(true)
       }
     }))
 
     return (
-      <Modal isOpen={isOpen} onClose={onClose} isCentered size={['full', 'md']}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{header}</ModalHeader>
-          <ModalBody color="gray.500">{children}</ModalBody>
-          <ModalFooter>
-            <Button onClick={onClose} colorScheme="primary">
+      <DialogRoot open={open} onOpenChange={(e) => setOpen(e.open)} centered size={['full', 'md']}>
+        <DialogContent>
+          <DialogHeader>{header}</DialogHeader>
+          <DialogBody color="gray.500">{children}</DialogBody>
+          <DialogFooter>
+            <Button onClick={() => setOpen(false)} colorPalette="primary">
               {buttonText}
             </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+          </DialogFooter>
+        </DialogContent>
+      </DialogRoot>
     )
   }
 )

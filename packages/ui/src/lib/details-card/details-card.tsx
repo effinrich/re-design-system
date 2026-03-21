@@ -1,13 +1,13 @@
-import { type CardProps, Card } from '@react/ui'
+import { type CardRootProps, Card } from '@chakra-ui/react'
 
-interface DetailsCardProps extends CardProps {
+interface DetailsCardProps extends CardRootProps {
   children: React.ReactNode
 }
 const DetailsCard = ({ children, ...cardProps }: DetailsCardProps) => {
   return (
-    <Card variant="unstyled" gap={6} {...cardProps}>
+    <Card.Root variant="unstyled" gap={6} {...cardProps}>
       {children}
-    </Card>
+    </Card.Root>
   )
 }
 

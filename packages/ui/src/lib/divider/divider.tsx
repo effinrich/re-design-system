@@ -1,9 +1,9 @@
-import { type DividerProps, Divider as ChakraDivider } from '@chakra-ui/react'
+import { type SeparatorProps, Separator } from '@chakra-ui/react'
 
-export const Divider = (props: DividerProps) => {
+export const Divider = (props: SeparatorProps) => {
   return (
     <div>
-      <ChakraDivider {...props} />
+      <Separator {...props} />
     </div>
   )
 }

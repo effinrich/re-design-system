@@ -7,18 +7,11 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table'
+import { LuChevronDown, LuChevronUp } from 'react-icons/lu'
 
 import {
   rh,
   Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  TriangleDownIcon,
-  TriangleUpIcon
 } from '../../index'
 
 export type DataTableProps<Data extends object> = {
@@ -48,19 +41,19 @@ export function DataTable<Data extends object>({
   })
 
   return (
-    <TableContainer borderBottomRadius="8px">
-      <Table variant={variant} colorScheme={colorScheme}>
-        <Thead>
+    <Table.ScrollArea borderBottomRadius="8px">
+      <Table.Root variant={variant} colorPalette={colorScheme}>
+        <Table.Header>
           {table.getHeaderGroups().map(headerGroup => (
-            <Tr key={headerGroup.id}>
+            <Table.Row key={headerGroup.id}>
               {headerGroup.headers.map(header => {
                 // see https://tanstack.com/table/v8/docs/api/core/column-def#meta to type this correctly
                 const meta: any = header.column.columnDef.meta
                 return (
-                  <Th
+                  <Table.ColumnHeader
                     key={header.id}
                     onClick={header.column.getToggleSortingHandler()}
-                    isNumeric={meta?.isNumeric}
+                    {...(meta?.isNumeric && { textAlign: 'end' })}
                   >
                     {flexRender(
                       header.column.columnDef.header,
@@ -70,34 +63,37 @@ export function DataTable<Data extends object>({
                     <rh.span pl="4">
                       {header.column.getIsSorted() ? (
                         header.column.getIsSorted() === 'desc' ? (
-                          <TriangleDownIcon aria-label="sorted descending" />
+                          <LuChevronDown aria-label="sorted descending" />
                         ) : (
-                          <TriangleUpIcon aria-label="sorted ascending" />
+                          <LuChevronUp aria-label="sorted ascending" />
                         )
                       ) : null}
                     </rh.span>
-                  </Th>
+                  </Table.ColumnHeader>
                 )
               })}
-            </Tr>
+            </Table.Row>
           ))}
-        </Thead>
-        <Tbody>
+        </Table.Header>
+        <Table.Body>
           {table.getRowModel().rows.map(row => (
-            <Tr key={row.id}>
+            <Table.Row key={row.id}>
               {row.getVisibleCells().map(cell => {
                 // see https://tanstack.com/table/v8/docs/api/core/column-def#meta to type this correctly
                 const meta: any = cell.column.columnDef.meta
                 return (
-                  <Td key={cell.id} isNumeric={meta?.isNumeric}>
+                  <Table.Cell
+                    key={cell.id}
+                    {...(meta?.isNumeric && { textAlign: 'end' })}
+                  >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </Td>
+                  </Table.Cell>
                 )
               })}
-            </Tr>
+            </Table.Row>
           ))}
-        </Tbody>
-      </Table>
-    </TableContainer>
+        </Table.Body>
+      </Table.Root>
+    </Table.ScrollArea>
   )
 }

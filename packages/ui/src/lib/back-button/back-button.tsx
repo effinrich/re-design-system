@@ -1,6 +1,6 @@
 import { MdChevronLeft } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
-import { type LinkProps, HStack, Icon, Link, Text } from '@react/ui'
+import { type LinkProps, HStack, Icon, Link, Text } from '@chakra-ui/react'
 
 interface BackButtonProps extends LinkProps {
   children: React.ReactNode

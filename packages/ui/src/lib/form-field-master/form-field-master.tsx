@@ -4,13 +4,15 @@ import styled from '@emotion/styled'
 import {
   Box,
   Flex,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
   Spacer,
   Tooltip
 } from '@react/ui'
+import { Field } from '../snippets/field'
+import {
+  FieldLabel,
+  FieldErrorText,
+  FieldHelperText
+} from '@chakra-ui/react/field'
 
 interface FormFieldProps {
   name: string
@@ -45,29 +47,29 @@ export const FormFieldMaster = ({
 
   return (
     <Tooltip
-      label={disabledHelpText}
-      placement="top-start"
-      isDisabled={!disabledHelpText}
+      content={disabledHelpText}
+      positioning={{ placement: 'top-start' }}
+      disabled={!disabledHelpText}
     >
-      <FormControl data-testid={testid} isInvalid={isInvalid}>
+      <Field data-testid={testid} invalid={isInvalid}>
         <Flex direction={['column', 'column', 'row']}>
           <Box w={['100%', '100%', '25%']} mr={4}>
-            <FormLabel color="gray.800">
+            <FieldLabel color="gray.800">
               {optional ? label : <StyledReqInput>{label}</StyledReqInput>}
-            </FormLabel>
+            </FieldLabel>
           </Box>
 
           <Spacer />
           <Box w={['100%', '100%', '75%']}>
             {children}
             {isInvalid ? (
-              <FormErrorMessage>{errorMessage}</FormErrorMessage>
+              <FieldErrorText>{errorMessage}</FieldErrorText>
             ) : (
-              <FormHelperText>{helper}</FormHelperText>
+              <FieldHelperText>{helper}</FieldHelperText>
             )}
           </Box>
         </Flex>
-      </FormControl>
+      </Field>
     </Tooltip>
   )
 }

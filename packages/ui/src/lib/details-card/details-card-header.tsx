@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { ComponentPropsWithoutRef } from 'react'
 import {
-  type CardHeaderProps,
   Box,
   CardHeader,
   Flex,
@@ -11,7 +10,7 @@ import {
 
 import BackButton from '../back-button/back-button'
 
-export interface DetailsCardHeaderProps extends CardHeaderProps {
+export interface DetailsCardHeaderProps extends ComponentPropsWithoutRef<typeof CardHeader> {
   title: string
   titleAddon?: React.ReactNode
   subtitle?: React.ReactNode

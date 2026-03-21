@@ -1,27 +1,4 @@
-import { mode, StyleFunctionProps, Styles } from '@chakra-ui/theme-tools'
-
-export const styles: Styles = {
-  global: (props: StyleFunctionProps) => ({
-    body: {
-      color: 'default',
-      bg: 'bg-canvas'
-    },
-    '*::placeholder': {
-      opacity: 1,
-      color: 'muted'
-    },
-    '*, *::before, &::after': {
-      borderColor: mode('gray.200', 'gray.700')(props)
-    },
-    'html,body': {
-      height: '100%'
-    },
-    '#__next, #root': {
-      display: 'flex',
-      flexDirection: 'column',
-      minH: '100%'
-    }
-  })
-}
-
+// Global styles are now defined in theme/index.ts via globalCss (Chakra v3).
+// This file is kept for backwards compatibility with the foundations/index.ts barrel export.
+export const styles = {}
 export default styles

@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { useHasUserConsented } from '@redesignhealth/portal/data-assets'
-import { Loader, useDisclosure } from '@react/ui'
+import { Loader } from '@react/ui'
 
 import Terms from '../terms'
 
@@ -14,12 +15,12 @@ const TermsChecker = ({ children }: ConsentCheckerProps) => {
   const { data: hasUserConsented, isFetched: hasUserConsentedFetched } =
     useHasUserConsented()
 
-  const { open, onClose } = useDisclosure({ defaultIsOpen: true })
+  const [open, setOpen] = useState(true)
 
   if (!hasUserConsentedFetched) {
     return <Loader />
   } else if (!hasUserConsented) {
-    return <Terms isAskingConsent isOpen={isOpen} onClose={onClose} />
+    return <Terms isAskingConsent isOpen={open} onClose={() => setOpen(false)} />
   } else {
     return children
   }

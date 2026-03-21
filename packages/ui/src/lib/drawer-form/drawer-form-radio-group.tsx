@@ -5,8 +5,8 @@ export const DrawerFormRadioGroup = (props: {
   name?: string
   defaultValue?: string
   direction?: 'row' | 'column'
-  isReadOnly?: boolean
-  isDisabled?: boolean
+  readOnly?: boolean
+  disabled?: boolean
 }) => {
   return (
     <RadioGroup
@@ -31,9 +31,9 @@ export const DrawerFormRadioGroup = (props: {
         >
           <Radio
             value={option.value}
-            isReadOnly={props.isReadOnly}
-            isDisabled={props.isDisabled}
-            colorScheme="purple"
+            readOnly={props.readOnly}
+            disabled={props.disabled}
+            colorPalette="purple"
           >
             {option.label ?? option.value}
           </Radio>

@@ -1,24 +1,19 @@
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
 import { Form } from 'react-router-dom'
 import {
   Box,
-  CloseIcon,
-  Divider,
-  Drawer,
-  DrawerContent,
-  DrawerOverlay,
-  DrawerProps,
   Flex,
-  IconButton,
   Loader,
+  Separator,
   Text,
-  useDisclosure
 } from '@react/ui'
+import { DrawerRoot, DrawerContent, DrawerBackdrop } from '../snippets/drawer'
+import { CloseButton } from '../snippets/close-button'
 
 export const DrawerForm = (props: {
   children: ReactNode
-  onClose?: DrawerProps['onClose']
-  onCloseComplete?: DrawerProps['onCloseComplete']
+  onClose?: () => void
+  onCloseComplete?: () => void
   header: string
   description?: string
   loading?: boolean
@@ -27,32 +22,36 @@ export const DrawerForm = (props: {
   action?: string
   success?: ReactNode
 }) => {
-  const { open, onClose } = useDisclosure({ defaultIsOpen: true })
+  const [open, setOpen] = useState(true)
+
+  const handleClose = () => {
+    if (props.onClose) {
+      props.onClose()
+    } else {
+      setOpen(false)
+    }
+  }
 
   return (
-    <Drawer
-      isOpen={isOpen}
-      placement="right"
-      onClose={props.onClose || onClose}
-      onOverlayClick={props.onClose || onClose}
-      onEsc={props.onClose || onClose}
-      isFullHeight
-      preserveScrollBarGap
-      closeOnEsc
-      onCloseComplete={props.onCloseComplete}
+    <DrawerRoot
+      open={open}
+      placement="end"
+      onOpenChange={(e) => {
+        if (!e.open) handleClose()
+      }}
+      onExitComplete={props.onCloseComplete}
       size={{ base: 'full', md: 'lg' }}
     >
-      <DrawerOverlay />
+      <DrawerBackdrop />
       <DrawerContent pt="12px">
         <Flex flexDir="column" h="100%">
-          <IconButton
+          <CloseButton
             aria-label="close form"
-            icon={<CloseIcon />}
-            onClick={props.onClose || onClose}
+            onClick={handleClose}
             size="md"
             w="fit-content"
             ml="auto"
-            variant="unstyled"
+            variant="ghost"
             color="gray.500"
             mr="16px"
           />
@@ -86,7 +85,7 @@ export const DrawerForm = (props: {
                   </Text>
                 )}
 
-                <Divider mt="24px" />
+                <Separator mt="24px" />
               </Box>
 
               <Flex
@@ -118,7 +117,7 @@ export const DrawerForm = (props: {
           )}
         </Flex>
       </DrawerContent>
-    </Drawer>
+    </DrawerRoot>
   )
 }
 

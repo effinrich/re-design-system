@@ -1,11 +1,7 @@
 import { ReactNode } from 'react'
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-  Box,
-  Button
-} from '@react/ui'
+import { Box, Button } from '@react/ui'
+
+import { Alert } from '../snippets/alert'
 
 export interface InfoAlertProps {
   children: ReactNode
@@ -15,24 +11,19 @@ export interface InfoAlertProps {
 
 export const InfoAlert = ({ onClick, title, children }: InfoAlertProps) => {
   return (
-    <Alert status="info" mb="24px" bg="gray.200" rounded="lg">
-      <Box>
-        <AlertTitle fontWeight={700} fontSize="18px" lineHeight="28px">
-          {title}
-        </AlertTitle>
-        <AlertDescription
-          fontWeight={400}
-          fontSize="16px"
-          lineHeight="24px"
-          display="inline-block"
-          mt="16px"
-        >
-          {children}
-        </AlertDescription>
-        <Button onClick={onClick} colorScheme="primary" mt="16px">
-          Got it
-        </Button>
+    <Alert
+      status="info"
+      title={title}
+      mb="24px"
+      bg="gray.200"
+      rounded="lg"
+    >
+      <Box mt="16px">
+        {children}
       </Box>
+      <Button onClick={onClick} colorPalette="primary" mt="16px">
+        Got it
+      </Button>
     </Alert>
   )
 }

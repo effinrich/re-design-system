@@ -28,12 +28,11 @@ import {
   Flex,
   Icon,
   IconButton,
-  RedesignLogo,
   Stack,
-  Text,
-  useDisclosure
+  Text
 } from '@react/ui'
 import { useQueryClient } from '@tanstack/react-query'
+import { RedesignLogo } from '../logos/redesign-logo/redesign-logo'
 
 import MyRequestsNavButton from './partials/my-requests-nav-button'
 import { NavButton } from './nav-button'
@@ -41,7 +40,7 @@ import { NavButton } from './nav-button'
 export interface NavProps {
   userInfo: UserInfoSummary
   userCompanyId?: string
-  onClose?: ReturnType<typeof useDisclosure>['onClose']
+  onClose?: () => void
 }
 
 export const Nav = ({ userInfo, userCompanyId, onClose }: NavProps) => {
@@ -228,11 +227,12 @@ export const Nav = ({ userInfo, userCompanyId, onClose }: NavProps) => {
             test-id="logout"
             onClick={handleLogout}
             aria-label="log out"
-            icon={<Icon as={MdLogout} />}
             color="white"
             variant="unstyled"
             fontSize={22}
-          />
+          >
+            <Icon as={MdLogout} />
+          </IconButton>
         </Flex>
       </Stack>
     </Flex>

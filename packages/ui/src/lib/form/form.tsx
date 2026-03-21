@@ -1,10 +1,7 @@
 import {
   Button,
   Card,
-  CardBody,
-  CardFooter,
-  Stack,
-  StackDivider
+  Stack
 } from '@react/ui'
 
 interface FormProps {
@@ -23,19 +20,19 @@ const Form = ({
   submitText = 'Save changes'
 }: FormProps) => {
   return (
-    <Card variant="unstyled" maxWidth="6xl">
+    <Card.Root variant="unstyled" maxWidth="6xl">
       <form onSubmit={onSubmit} name={submitText}>
-        <Stack gap={5}><CardBody>{children}</CardBody></Stack>
-        <CardFooter gap={3} justify="end" mt={4}>
+        <Stack gap={5}><Card.Body>{children}</Card.Body></Stack>
+        <Card.Footer gap={3} justify="end" mt={4}>
           <Button variant="outline" onClick={onCancel}>
             Cancel
           </Button>
-          <Button isDisabled={disabled} colorScheme="primary" type="submit">
+          <Button disabled={disabled} colorPalette="primary" type="submit">
             {submitText}
           </Button>
-        </CardFooter>
+        </Card.Footer>
       </form>
-    </Card>
+    </Card.Root>
   );
 }
 

@@ -1,18 +1,15 @@
-import { forwardRef, ReactElement, useImperativeHandle } from 'react'
+import { forwardRef, ReactElement, useImperativeHandle, useState, useCallback } from 'react'
 import { FieldErrors } from 'react-hook-form'
+import { Button, Text } from '@chakra-ui/react'
+
 import {
-  Button,
-  Drawer,
+  DrawerRoot,
   DrawerBody,
-  DrawerCloseButton,
+  DrawerCloseTrigger,
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
-  DrawerOverlay,
-  Text,
-  useDisclosure
-} from '@react/ui'
-
+} from '../snippets/drawer'
 import { AxiosErrorAlert } from '../axios-error-alert/axios-error-alert'
 
 interface CustomDrawerProps {
@@ -44,28 +41,30 @@ export const CustomDrawer = forwardRef(
     }: CustomDrawerProps,
     ref
   ) => {
-    const { open, onClose } = useDisclosure({ defaultIsOpen: true })
+    const [open, setOpen] = useState(true)
+
+    const handleClose = useCallback(() => {
+      setOpen(false)
+      handleOnCloseComplete?.()
+    }, [handleOnCloseComplete])
 
     useImperativeHandle(ref, () => ({
       handleOnClose() {
-        onClose()
+        handleClose()
       }
     }))
 
     return (
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        closeOnEsc
-        isFullHeight
-        preserveScrollBarGap
-        onCloseComplete={handleOnCloseComplete}
+      <DrawerRoot
+        open={open}
+        placement="end"
+        onOpenChange={(details) => {
+          if (!details.open) handleClose()
+        }}
         size={{ base: 'full', md: 'lg' }}
       >
-        <DrawerOverlay />
         <DrawerContent pt={6}>
-          <DrawerCloseButton />
+          <DrawerCloseTrigger />
           <DrawerHeader borderBottomWidth="1px" fontSize="30px">
             {title}
             {description && (
@@ -95,15 +94,15 @@ export const CustomDrawer = forwardRef(
             <Button
               variant="outline"
               mr={3}
-              onClick={onClose}
-              isDisabled={isLoading}
+              onClick={handleClose}
+              disabled={isLoading}
             >
               Cancel
             </Button>
             <Button
-              colorScheme="brand"
-              isDisabled={isLoading || !isValid}
-              isLoading={isLoading}
+              colorPalette="brand"
+              disabled={isLoading || !isValid}
+              loading={isLoading}
               type="submit"
               onClick={() => handleOnSubmit()}
             >
@@ -111,9 +110,7 @@ export const CustomDrawer = forwardRef(
             </Button>
           </DrawerFooter>
         </DrawerContent>
-
-        {/* <DevTool control={control} /> */}
-      </Drawer>
+      </DrawerRoot>
     )
   }
 )
